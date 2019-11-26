@@ -14,48 +14,11 @@ function addStyleResource (rule) {
 }
 
 module.exports = {
-  siteName: "Fashion e-store",
+  siteName: "Natali Zharkova",
   siteUrl: `https://da4me.netlify.com`,
-  titleTemplate: "%s | Da4Me",
-  siteDescription: "Интернет-магазин дизайнерской женской одежды",
+  titleTemplate: "%s | NZh",
+  siteDescription: "All about N.Zh.",
   plugins: [
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        path: "products/**/*.md",
-        typeName: "ProductItem",
-        resolveAbsolutePaths: false,
-        remark: {
-          externalLinksTarget: "_blank",
-          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
-        }
-      }
-    },
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        path: "categories/**/*.md",
-        typeName: "CategoryItem",
-        resolveAbsolutePaths: false,
-        remark: {
-          externalLinksTarget: "_blank",
-          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
-        },
-        route: '/categories/:slug'
-      }
-    },
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        path: "pages/**/*.md",
-        typeName: "PageItem",
-        resolveAbsolutePaths: false,
-        remark: {
-          externalLinksTarget: "_blank",
-          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
-        }
-      }
-    },
     {
       use: "@gridsome/source-filesystem",
       options: {
