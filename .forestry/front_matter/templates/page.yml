@@ -21,7 +21,3 @@ fields:
   description: Будет ли страница выводиться в меню(в хедере и в футере))
   hidden: false
   default: true
-pages:
-- pages/доставка.md
-- pages/размерная-сетка-1.md
-- pages/о-нас.md
