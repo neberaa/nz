@@ -51,8 +51,8 @@ export default {
   },
   data() {
     return {
-      IMAGE_URL: 'https://res.cloudinary.com/da4me',
-      IMAGE_URL_DEFAULT: 'https://res.cloudinary.com/da4me/fl_progressive,q_auto:best',
+      IMAGE_URL: 'https://res.cloudinary.com/nzh',
+      IMAGE_URL_DEFAULT: 'https://res.cloudinary.com/nzh/fl_progressive,q_auto:best',
     }
   },
   methods: {
