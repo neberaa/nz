@@ -48,6 +48,10 @@ import Parallax from 'parallax-js'
 export default {
   inject: ['resp'],
   components: {
+    FullPage: () =>
+      import ('vue-fullpage.js')
+        .then(m => m.FullPage)
+        .catch(),
   },
   metaInfo () {
     return {
