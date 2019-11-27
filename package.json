@@ -17,6 +17,7 @@
     "prerender-spa-plugin": "^3.4.0",
     "vue-carousel": "^0.18.0",
     "vue-fullpage.js": "^0.1.5",
+    "vue-mouse-parallax": "^1.2.2",
     "vue-slick": "^1.1.15",
     "vue-svg-loader": "^0.12.0"
   },
