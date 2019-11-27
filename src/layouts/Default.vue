@@ -1,12 +1,11 @@
 <template>
-  <div class="layout sticky-header">
+  <div class="layout">
     <Header />
       <transition name="fade" appear>
         <main class="page-content">
           <slot/>
         </main>
       </transition>
-    <snack-bar/>
     <Footer />
   </div>
 </template>
@@ -40,11 +39,6 @@ body {
   color: $gray;
   @include screenBreakpoint2(desktop) {
     font-size: 16px;
-  }
-  &.scroll-lock {
-    @include screenBreakpoint2(desktop) {
-      padding-right: 17px;
-    }
   }
 }
 
@@ -82,17 +76,6 @@ span {
 img {
   max-width: 100%;
 }
-.page {
-  a {
-    color: $blue;
-  }
-  img {
-    max-width: 500px;
-    width: 100%;
-    margin: auto;
-    display: block;
-  }
-}
 
 button {
   border: none;
@@ -108,16 +91,6 @@ button {
   -webkit-appearance: none;
   &:focus {
     outline: none;
-  }
-  &.cta.outline {
-    &:focus {
-      outline: 2px solid $gray;
-    }
-    &.blue {
-      &:focus {
-        outline: 2px solid $blue;
-      }
-    }
   }
   &::-moz-focus-inner {
     border: 0;
@@ -227,16 +200,6 @@ textarea {
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
-  &.sticky-header {
-    padding: 6rem 0 0 0;
-    @include screenBreakpoint2(phone) {
-      padding-top: 4rem;
-    }
-  }
-}
-
-main.page-content {
-  padding-bottom: 6rem;
 }
 
 .container {

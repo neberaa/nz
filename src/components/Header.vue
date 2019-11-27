@@ -36,5 +36,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "~hamburgers/_sass/hamburgers/hamburgers";
+  .header {
+    position: absolute;
+    top: 0;
+  }
 
 </style>
