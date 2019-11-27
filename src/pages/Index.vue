@@ -6,10 +6,7 @@
           First section ...
         </div>
         <div class="section">
-          <div id="scene">
-            <div data-depth="5">My first Layer!</div>
-            <div data-depth="1.6">My second Layer!</div>
-          </div>
+          Second section ...
         </div>
         <div class="section">
           Third section ...
@@ -44,7 +41,6 @@ query Posts {
 </page-query>
 
 <script>
-import Parallax from 'parallax-js'
 export default {
   inject: ['resp'],
   components: {
@@ -74,22 +70,10 @@ export default {
     paintBlock() {
       return this.$page.paintBlock.edges[0].node;
     },
-    isDesktop() {
-      return this.resp.device.desktop;
-    }
   },
   methods: {
-    initParallax() {
-      const scene = document.getElementById('scene');
-      const parallaxInstance = new Parallax(scene);
-    }
   },
   mounted() {
-    this.$nextTick(() => {
-      if(this.isDesktop) {
-        this.initParallax();
-      }
-    });
   }
 }
 </script>
