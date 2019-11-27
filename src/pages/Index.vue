@@ -1,28 +1,30 @@
 <template>
   <Layout>
-    <full-page ref="fullpage" :options="options" id="fullpage">
-      <div class="section">
-        First section ...
-      </div>
-      <div class="section">
-        <div id="scene">
-          <div data-depth="5">My first Layer!</div>
-          <div data-depth="1.6">My second Layer!</div>
+    <ClientOnly>
+      <full-page ref="fullpage" :options="options" id="fullpage">
+        <div class="section">
+          First section ...
         </div>
-      </div>
-      <div class="section">
-        Third section ...
-      </div>
-      <div class="section">
-        Fourth section ...
-      </div>
-      <div class="section">
-        Fifth section ...
-      </div>
-      <div class="section">
-        Sixth section ...
-      </div>
-    </full-page>
+        <div class="section">
+          <div id="scene">
+            <div data-depth="5">My first Layer!</div>
+            <div data-depth="1.6">My second Layer!</div>
+          </div>
+        </div>
+        <div class="section">
+          Third section ...
+        </div>
+        <div class="section">
+          Fourth section ...
+        </div>
+        <div class="section">
+          Fifth section ...
+        </div>
+        <div class="section">
+          Sixth section ...
+        </div>
+      </full-page>
+    </ClientOnly>
   </Layout>
 </template>
 
@@ -46,14 +48,6 @@ import Parallax from 'parallax-js'
 export default {
   inject: ['resp'],
   components: {
-    Carousel: () =>
-      import ('vue-carousel')
-        .then(m => m.Carousel)
-        .catch(),
-    Slide: () =>
-      import ('vue-carousel')
-        .then(m => m.Slide)
-        .catch(),
   },
   metaInfo () {
     return {
