@@ -8,15 +8,15 @@ sections:
   label: INFO
 - type: document
   path: data/theme.json
-  label: 'О сайте '
+  label: Main site info
 - type: document
   path: data/contacts.json
-  label: Контакты
+  label: Contacts
 - type: heading
-  label: КОНТЕНТ
+  label: CONTENT
 - type: directory
   path: pages
-  label: Страницы
+  label: Pages
   create: all
   match: "**/*.md"
   templates:
