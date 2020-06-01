@@ -21,14 +21,6 @@ sections:
   match: "**/*.md"
   templates:
   - page
-- type: directory
-  path: blocks
-  label: Блоки страниц
-  create: all
-  match: "**/*.md"
-  templates:
-  - project
-  - page-block
 upload_dir: uploads
 public_path: https://res.cloudinary.com/da4me/fl_progressive,q_auto:best
 front_matter_path: ''
