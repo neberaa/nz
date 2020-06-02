@@ -21,7 +21,7 @@ sections:
   match: "**/*.md"
   templates:
   - page
-upload_dir: ''
+upload_dir: nzh
 public_path: ''
 front_matter_path: ''
 use_front_matter_path: 
