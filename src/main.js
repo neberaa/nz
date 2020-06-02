@@ -11,9 +11,9 @@ export default function(Vue, { head, appOptions, isClient  }) {
   Vue.mixin(deviceChecker);
   if (isClient) {
     const VueFullPage = require('vue-fullpage.js').default;
-    const VueMouseParallax = require('vue-mouse-parallax');
+    // const VueMouseParallax = require('vue-mouse-parallax');
     Vue.use(VueFullPage);
-    Vue.use(VueMouseParallax);
+    // Vue.use(VueMouseParallax);
   }
   
   appOptions.store = store;
