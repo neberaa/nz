@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <ClientOnly>
+<!--    <ClientOnly>-->
       <full-page ref="fullpage" :options="options" id="fullpage">
         <div class="section">
           First section ...
@@ -36,24 +36,9 @@
           Sixth section ...
         </div>
       </full-page>
-    </ClientOnly>
+<!--    </ClientOnly>-->
   </Layout>
 </template>
-
-<page-query>
-query Posts {
-  paintBlock: allBlockItem(filter: {key: {eq: "block_paint"}}) {
-    edges {
-      node {
-        title
-        description
-        bgImage
-        gallery
-      }
-    }
-  }
-}
-</page-query>
 
 <script>
 export default {
@@ -90,9 +75,6 @@ export default {
     }
   },
   computed: {
-    paintBlock() {
-      return this.$page.paintBlock.edges[0].node;
-    },
   },
   methods: {
   },
