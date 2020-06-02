@@ -8,27 +8,19 @@ sections:
   label: INFO
 - type: document
   path: data/theme.json
-  label: 'О сайте '
+  label: Main site info
 - type: document
   path: data/contacts.json
-  label: Контакты
+  label: Contacts
 - type: heading
-  label: КОНТЕНТ
+  label: CONTENT
 - type: directory
   path: pages
-  label: Страницы
+  label: Pages
   create: all
   match: "**/*.md"
   templates:
   - page
-- type: directory
-  path: blocks
-  label: Блоки страниц
-  create: all
-  match: "**/*.md"
-  templates:
-  - project
-  - page-block
 upload_dir: uploads
 public_path: https://res.cloudinary.com/da4me/fl_progressive,q_auto:best
 front_matter_path: ''
