@@ -1906,8 +1906,8 @@ cli-cursor@^2.0.0:
     restore-cursor "^2.0.0"
 
 clipboard@^2.0.0:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
   dependencies:
     good-listener "^1.2.2"
     select "^1.1.2"
@@ -3369,6 +3369,10 @@ fstream@^1.0.0, fstream@^1.0.12:
     inherits "~2.0.0"
     mkdirp ">=0.5 0"
     rimraf "2"
+
+fullpage.js@^3.0.8:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.9.tgz#fc7dba41d521f020a51e9c00fb0fee0d2e11d552"
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -6166,8 +6170,8 @@ pretty-error@^2.0.2:
     utila "~0.4"
 
 prismjs@^1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.15.0.tgz#8801d332e472091ba8def94976c8877ad60398d9"
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.21.0.tgz#36c086ec36b45319ec4218ee164c110f9fc015a3"
   optionalDependencies:
     clipboard "^2.0.0"
 
@@ -7462,8 +7466,8 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
 
 tiny-emitter@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
@@ -7887,9 +7891,22 @@ vue-click-outside@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.7.tgz#cdd2b1605e3c4944784e1794eae4a12a0f700bd6"
 
+vue-fullpage.js@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/vue-fullpage.js/-/vue-fullpage.js-0.1.5.tgz#967c1602556d3f2f0c27468e73198f63c07056e9"
+  dependencies:
+    fullpage.js "^3.0.8"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
+
+vue-kinesis@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/vue-kinesis/-/vue-kinesis-1.1.5.tgz#0ffcd83e994223ea55f219eb8715bc92fc2de020"
+  dependencies:
+    core-js "^2.6.5"
+    vue "^2.6.10"
 
 vue-loader@^15.6.0:
   version "15.7.1"
@@ -7961,6 +7978,10 @@ vue-template-es2015-compiler@^1.9.0:
 vue@^2.5.17, vue@^2.6.6:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
+
+vue@^2.6.10:
+  version "2.6.11"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
 
 vuex@^3.1.1:
   version "3.1.1"
