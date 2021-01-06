@@ -4,11 +4,11 @@ hide_body: true
 fields:
 - type: text
   name: site_name
-  label: Имя сайта
+  label: Site name
   description: Введите название сайта
 - type: textarea
   name: site_description
-  label: Описание сайта
+  label: Site description
   description: Введите описание сайта
 - type: textarea
   name: hero_title
@@ -31,25 +31,13 @@ fields:
   type: text
   hidden: false
   default: ''
-- name: footer_bg
-  type: file
-  config:
-    maxSize: 250
-  label: Фон для футера
-  description: Картинка для футера
-- name: size_chart
-  type: file
-  config:
-    maxSize: 250
-  label: Размерная сетка
-  description: Выберите картинку с размерной сеткой
 - name: cloudinary_url
   type: text
   config:
     required: false
   label: Cloudinary URL
-  hidden: false
-  default: https://res.cloudinary.com/da4me
+  hidden: true
+  default: https://res.cloudinary.com/nzh
   description: Не редактировать
 pages:
 - data/theme.json
