@@ -18,7 +18,7 @@
 export default {
   metaInfo () {
     return {
-      title: 'Ошибка'
+      title: 'Error'
     }
   },
 }
@@ -45,7 +45,7 @@ export default {
       }
       .title {
         font-size: 5rem;
-        color: $red;
+        color: $navy;
         margin-bottom: 2rem;
         @include screenBreakpoint2(desktop) {
           font-size: 6rem;
@@ -63,7 +63,6 @@ export default {
       top: 0;
       width: 400px;
       height: 380px;
-      background: url("../assets/icons/sparrow.png") center no-repeat;
       background-size: cover;
       @include screenBreakpoint2(tablet) {
         width: 300px;

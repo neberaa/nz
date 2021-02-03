@@ -36,44 +36,6 @@ export default {
     @include screenBreakpoint2(phone) {
       flex-direction: column;
     }
-    .column {
-      display: flex;
-      flex-direction: column;
-      .title {
-        color: $red;
-        margin-top: 0;
-        font-size: 20px;
-      }
-      .link {
-        margin-bottom: 5px;
-        font-size: 16px;
-        color: $gray;
-        font-weight: bold;
-      }
-      .icon {
-        width: 20px;
-        height: 20px;
-        vertical-align: middle;
-        margin-right: 5px;
-      }
-       &.logo {
-          width: 150px;
-         margin-top: 20px;
-         @include screenBreakpoint2(phone) {
-           margin-top: 0;
-           margin-bottom: 20px;
-           width: 120px;
-         }
-        }
-       &.nav {
-         @include screenBreakpoint2(phone) {
-           margin-bottom: 20px;
-         }
-       }
-       &.contacts {
-
-      }
-    }
   }
 }
 </style>

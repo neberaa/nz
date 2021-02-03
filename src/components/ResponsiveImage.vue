@@ -51,8 +51,8 @@ export default {
   },
   data() {
     return {
-      IMAGE_URL: 'https://res.cloudinary.com/nzh',
-      IMAGE_URL_DEFAULT: 'https://res.cloudinary.com/nzh/fl_progressive,q_auto:best',
+      IMAGE_URL: require('../../data/theme.json').cloudinary_url,
+      IMAGE_URL_DEFAULT: require('../../data/theme.json').cloudinary_url + '/fl_progressive,q_auto:best',
     }
   },
   methods: {
@@ -90,7 +90,6 @@ export default {
   .slick-current {
     picture.thumb {
       img {
-        border: 2px solid $blue;
       }
     }
   }

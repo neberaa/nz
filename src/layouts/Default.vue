@@ -36,7 +36,7 @@ body {
   font-size: 14px;
   transition: background 0.5s ease;
   overflow-x: hidden;
-  color: $gray;
+  color: $navy;
   @include screenBreakpoint2(desktop) {
     font-size: 16px;
   }
@@ -101,60 +101,15 @@ button {
   padding: 10px 15px;
   background: $white;
   font-size: 1rem;
-  color: $gray;
+  color: $navy;
   white-space: nowrap;
   font-weight: bold;
-  border: 1px solid $gray;
+  border: 1px solid $yellow;
   text-align: center;
   transition: all 300ms ease;
   &:hover {
-    background: $gray;
-    color: $white;
-  }
-  &.blue {
-    border-color: $blue;
-    &:hover {
-      background: $blue;
-      color: $white;
-    }
-  }
-  &.red {
-    border-color: $red;
-    &:hover {
-      background: $red;
-      color: $white;
-    }
-  }
-  &.outline {
-    border:none;
-    outline: 1px solid $gray;
-    outline-offset: -4px;
-    &.blue {
-      outline: 1px solid $blue;
-      &:hover {
-        outline-color: $white;
-      }
-    }
-    &.red {
-      outline: 1px solid $red;
-    }
-  }
-  &.thin {
-    border-width: 1px;
-    font-weight: normal;
-    &.outline {
-      outline-width: 1px;
-    }
-  }
-  &.inactive {
-    cursor: not-allowed;
-    border: 1px solid $light-gray;
-    color: $light-gray;
-    &:hover {
-      border: 1px solid $light-gray;
-      color: $light-gray;
-      background: $white;
-    }
+    background: transparent;
+    color: $navy;
   }
   &.small {
     font-size: 0.8rem;
@@ -169,16 +124,13 @@ textarea {
 }
 input {
   height: 45px;
-  border: 1px solid rgba($gray, 0.3);
   transition: all 300ms ease;
   font-family: 'Didact Gothic';
   font-size: 1rem;
   padding: 10px;
   &:invalid {
-    border: 1px solid rgba($red, 0.5);
   }
   &:focus {
-    border: 1px solid rgba($blue, 0.5);
     outline: none;
   }
 }
@@ -189,7 +141,7 @@ textarea {
   font-size: 1rem;
   padding: 10px;
   &:focus {
-    border: 1px solid rgba($blue, 0.5);
+    border: 1px solid rgba($navy, 0.5);
     outline: none;
   }
 }
@@ -218,16 +170,10 @@ textarea {
 }
 
 .icon {
-  fill: $gray;
+  fill: $navy;
   transition: fill 300ms ease;
-  &--white {
-    fill: $white;
-  }
-  &--blue {
-    fill: $blue;
-  }
-  &--coral {
-    fill: $coral;
+  &--yellow {
+    fill: $yellow;
   }
   &.cross {
     position: relative;
