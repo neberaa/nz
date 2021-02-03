@@ -30,7 +30,7 @@ export default {
 }
 
 body {
-  font-family: 'Didact Gothic',system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: 'Poppins',Didact Gothic,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   margin:0;
   padding: 0;
   font-size: 14px;

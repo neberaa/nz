@@ -1,9 +1,23 @@
-/* didact-gothic-regular - latin_cyrillic */
 @font-face {
-  font-family: 'Didact Gothic';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: local('Didact Gothic Regular'), local('DidactGothic-Regular'),
-  url('../assets/fonts/didact-gothic-v13-latin_cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../assets/fonts/didact-gothic-v13-latin_cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: local('Poppins'), url('/assets/fonts/poppins-regular-webfont.woff2') format('woff2');
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Poppins-bold'), url('/assets/fonts/poppins-bold-webfont.woff2') format('woff2');
+  unicode-range: U+0020-007F;
+}
+
+@font-face {
+  font-family: 'Playfair';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Playfair'), url('/assets/fonts/playfairdisplay-bold-webfont.woff2') format('woff2');
+  unicode-range: U+0020-007F;
 }
