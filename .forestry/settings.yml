@@ -14,13 +14,6 @@ sections:
   label: Contacts
 - type: heading
   label: CONTENT
-- type: directory
-  path: pages
-  label: Pages
-  create: all
-  match: "**/*.md"
-  templates:
-  - page
 - type: document
   path: data/mainscreen.json
   label: Main Screen
