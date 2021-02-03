@@ -24,7 +24,6 @@ sections:
 - type: document
   path: data/mainscreen.json
   label: Main Screen
-  match: "**/*"
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
