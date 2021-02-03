@@ -1,6 +1,6 @@
 <template>
   <Layout>
-
+      <h1>Hello world</h1>
   </Layout>
 </template>
 
@@ -11,7 +11,7 @@ query Posts {
       node {
         title
         description
-        bgImage
+        bg_image
         gallery
       }
     }

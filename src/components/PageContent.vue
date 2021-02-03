@@ -1,8 +1,8 @@
 <template>
-    <div
-        class="page-content"
-        v-html="content"
-    />
+  <div
+    class="page-content"
+    v-html="content"
+  />
 </template>
 
 <script>

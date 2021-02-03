@@ -1,12 +1,9 @@
 <template>
-  <header class="header">
-  </header>
+  <header class="header" />
 </template>
 
 <script>
 import ClickOutside from 'vue-click-outside';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
-import { mapMutations, mapState } from 'vuex';
 
 export default {
   directives: {
@@ -35,7 +32,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~hamburgers/_sass/hamburgers/hamburgers";
   .header {
     position: absolute;
     top: 0;

@@ -14,17 +14,17 @@ function addStyleResource (rule) {
 }
 
 module.exports = {
-  siteName: "Natali Zharkova",
+  siteName: "Natalia Zharkova",
   siteUrl: `https://nzh.netlify.com`,
-  titleTemplate: "%s | NZh",
-  siteDescription: "All about N.Zh.",
+  titleTemplate: "%s | Natalia Zharkova",
+  siteDescription: "Natalia Zharkova Personal Site",
   plugins: [
     {
       use: "@gridsome/source-filesystem",
       options: {
         path: "socials/**/*.md",
         typeName: "SocialItem",
-        resolveAbsolutePaths: false,
+        resolveAbsolutePaths: true,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]
@@ -36,7 +36,7 @@ module.exports = {
       options: {
         path: "blocks/**/*.md",
         typeName: "BlockItem",
-        resolveAbsolutePaths: false,
+        resolveAbsolutePaths: true,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]
@@ -60,14 +60,14 @@ module.exports = {
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
   },
-  configureWebpack: () => {
-    return {
-      plugins: [
-        new PrerenderSPAPlugin(
-          path.resolve(__dirname, 'dist'),
-          ['/'],
-        ),
-      ]
-    }
-  }
+  // configureWebpack: () => {
+  //   return {
+  //     plugins: [
+  //       new PrerenderSPAPlugin({
+  //         staticDir: path.join(__dirname, 'dist'),
+  //         routes: [ '/'],
+  //       })
+  //     ]
+  //   }
+  // }
 };
