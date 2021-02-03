@@ -4,20 +4,18 @@ hide_body: true
 fields:
 - type: text
   name: site_name
-  label: Site name
-  description: Введите название сайта
+  label: Web Site name
 - type: textarea
   name: site_description
-  label: Site description
-  description: Введите описание сайта
+  label: Web Site description
 - type: textarea
   name: hero_title
   config:
     wysiwyg: true
     schema:
       format: html
-  label: Заголовок главной страницы
   description: Введите заголовок для главной страницы
+  label: Hero title
 - type: textarea
   name: hero_subtitle
   config:
