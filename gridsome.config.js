@@ -15,9 +15,7 @@ function addStyleResource (rule) {
 
 module.exports = {
   siteName: "Natalia Zharkova",
-  // siteUrl: `https://nzh.netlify.com`,
-  siteUrl: 'https://neberaa.github.io',
-  pathPrefix: '/projects/nzh',
+  siteUrl: `https://nzh.netlify.com`,
   titleTemplate: "%s | Natalia Zharkova",
   siteDescription: "Natalia Zharkova Personal Site",
   plugins: [
