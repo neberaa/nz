@@ -788,6 +788,12 @@
     mime-types "^2.1.21"
     slash "^2.0.0"
 
+"@gridsome/transformer-json@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@gridsome/transformer-json/-/transformer-json-0.2.1.tgz#76989b964ff5a13e7f64e1e59bcfca80c8bc0114"
+  dependencies:
+    json-parse-better-errors "^1.0.2"
+
 "@gridsome/transformer-remark@^0.6.1":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@gridsome/transformer-remark/-/transformer-remark-0.6.4.tgz#e2b5319fc021379730cfd86b4f1c1276d8677b5e"
