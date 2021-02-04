@@ -37,5 +37,3 @@ fields:
   hidden: true
   default: https://res.cloudinary.com/nataliazharkova
   description: Не редактировать
-pages:
-- data/theme.json

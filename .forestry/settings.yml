@@ -8,7 +8,7 @@ sections:
   label: INFO
 - type: document
   path: data/main.json
-  label: Site info
+  label: Main
 - type: document
   path: data/contacts.json
   label: Contacts
