@@ -25,5 +25,12 @@ fields:
   config:
     min: 
     max: 
+- name: page_key
+  type: text
+  config:
+    required: false
+  hidden: true
+  label: Page key
+  default: courses
 pages:
 - data/pageBlocks/courses.json
