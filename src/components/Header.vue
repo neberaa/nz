@@ -13,8 +13,7 @@ export default {
   data() {
     return {
       logo: require("../../static/logo.png"),
-      settings: require("../../data/theme.json"),
-      contacts: require("../../data/contacts.json"),
+      settings: require("../../data/main.json"),
       href: null,
     }
   },

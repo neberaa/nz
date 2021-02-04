@@ -15,8 +15,7 @@ export default {
   },
   data() {
     return {
-      contacts: require("../../data/contacts.json"),
-      settings: require("../../data/theme.json"),
+      settings: require("../../data/main.json"),
     }
   },
 }
