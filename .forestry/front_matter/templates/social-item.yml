@@ -1,0 +1,14 @@
+---
+label: Social Item
+hide_body: true
+fields:
+- name: link
+  type: text
+  config:
+    required: false
+  label: Link
+- name: icon
+  type: file
+  config:
+    maxSize: 64
+  label: Icon
