@@ -12,66 +12,6 @@ fields:
   config:
     required: false
   label: Price
-- name: row1
-  type: field_group
-  config: {}
-  fields:
-  - name: title
-    type: text
-    config:
-      required: false
-    label: Title
-  - name: value
-    type: text
-    config:
-      required: false
-    label: Value
-  label: Row1
-- name: row2
-  type: field_group
-  config: {}
-  fields:
-  - name: title
-    type: text
-    config:
-      required: false
-    label: Title
-  - name: value
-    type: text
-    config:
-      required: false
-    label: Value
-  label: Row2
-- name: row3
-  type: field_group
-  config: {}
-  fields:
-  - name: title
-    type: text
-    config:
-      required: false
-    label: Title
-  - name: value
-    type: text
-    config:
-      required: false
-    label: Value
-  label: Row3
-- name: row4
-  type: field_group
-  config: {}
-  fields:
-  - name: title
-    type: text
-    config:
-      required: false
-    label: Title
-  - name: value
-    type: text
-    config:
-      required: false
-    label: Value
-  label: Row4
 - name: description
   type: textarea
   default: ''
@@ -81,15 +21,16 @@ fields:
     schema:
       format: markdown
   label: Description
+- name: card_fields
+  type: blocks
+  label: Card fields
+  template_types:
+  - course-card-field
+  config:
+    min: 
+    max: 
 - name: read_more_label
   type: text
   config:
     required: false
   label: Read more label
-- name: card_fields
-  type: blocks
-  label: Card fields
-  template_types: []
-  config:
-    min: 
-    max: 
