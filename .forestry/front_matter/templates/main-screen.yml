@@ -1,6 +1,6 @@
 ---
 label: Main screen
-hide_body: false
+hide_body: true
 fields:
 - name: yellow_welcome_label
   type: text

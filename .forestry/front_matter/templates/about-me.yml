@@ -1,0 +1,31 @@
+---
+label: About me
+hide_body: false
+fields:
+- name: section_title
+  type: text
+  config:
+    required: false
+  label: Section title
+- name: left_column_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Left column text
+- name: right_column_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Right column text
+- name: photos
+  type: image_gallery
+  config: {}
+  label: Photos
