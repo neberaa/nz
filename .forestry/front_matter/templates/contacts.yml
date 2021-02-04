@@ -91,6 +91,7 @@ fields:
       - Text
       - Email
       - Phone
+      - Textarea
       source:
         type: simple
         section: 
