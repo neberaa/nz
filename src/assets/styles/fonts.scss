@@ -2,15 +2,15 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: local('Poppins'), url('/assets/fonts/poppins-regular-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/poppins-regular-webfont.woff2') format('woff2');
   unicode-range: U+0020-007F;
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Poppins-bold';
   font-style: normal;
   font-weight: 700;
-  src: local('Poppins-bold'), url('/assets/fonts/poppins-bold-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/poppins-bold-webfont.woff2') format('woff2');
   unicode-range: U+0020-007F;
 }
 
@@ -18,6 +18,6 @@
   font-family: 'Playfair';
   font-style: normal;
   font-weight: 700;
-  src: local('Playfair'), url('/assets/fonts/playfairdisplay-bold-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/playfairdisplay-bold-webfont.woff2') format('woff2');
   unicode-range: U+0020-007F;
 }
