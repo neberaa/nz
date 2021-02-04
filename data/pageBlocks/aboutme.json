@@ -1,12 +1,13 @@
 {
-  "section_title": "Wilkome",
-  "left_column_text": "to the personal website of freediving world chamion",
-  "right_column_text": "Natalia Zharkova",
+  "section_title": "About me",
+  "left_column_text": "    Besides the limits of breath-hold, immersion in water and exposure to high ambient pressure also have physiological effects that limit the depths and duration possible in freediving.\n     Examples of freediving activities are traditional fishing techniques, competitive and non-competitive freediving, competitive and non-competitive spearfishing and freediving photography, synchronised swimming, underwater football, underwater rugby, underwater hockey, underwater target shooting and snorkeling. There are also a range of \"competitive apnea\" disciplines; in which competitors attempt to attain great depths, times, or distances on a single breath.used to refer to scuba diving, due to the freedom of movement compared with surface supplied diving.",
+  "right_column_text": "    Besides the limits of breath-hold, immersion in water and exposure to high ambient pressure also have physiological effects that limit the depths and duration possible in freediving.\n     Examples of freediving activities are traditional fishing techniques, competitive and non-competitive freediving, competitive and non-competitive spearfishing and freediving photography, synchronised swimming, underwater football, underwater rugby, underwater hockey, underwater target shooting and snorkeling. There are also a range of \"competitive apnea\" disciplines; in which competitors attempt to attain great depths, times, or distances on a single breath.used to refer to scuba diving, due to the freedom of movement compared with surface supplied diving.",
   "cta_button_text": "Sign up for a course",
   "photos": [
-    "/v1612444944/nzh/5DM45758_dbgapx.jpg",
     "/v1591114786/nzh/5c49c62721348_qwufzp.jpg",
-    "/v1612444944/nzh/2_dzxmlk.jpg"
+    "/v1612444944/nzh/5DM45758_dbgapx.jpg",
+    "/v1612444944/nzh/2_dzxmlk.jpg",
+    "/v1612444943/nzh/kjuj_iw86zf.png"
   ],
   "page_key": "aboutme"
 }
