@@ -16,6 +16,6 @@
     "type": "Textarea"
   },
   "form_button_text": "Send",
-  "thank_you_title": "",
-  "thank_you_description": ""
+  "thank_you_title": "Thanks for your request!",
+  "thank_you_description": "Will keep you in touch in the nearest future"
 }
