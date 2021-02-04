@@ -92,5 +92,12 @@ fields:
       max: 
       step: 
   label: Achivement4
+- name: page_key
+  type: text
+  config:
+    required: false
+  label: Page key
+  hidden: true
+  default: achivements
 pages:
 - data/pageBlocks/achivements.json
