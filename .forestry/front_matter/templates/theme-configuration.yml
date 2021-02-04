@@ -35,7 +35,7 @@ fields:
     required: false
   label: Cloudinary URL
   hidden: true
-  default: https://res.cloudinary.com/nzh
+  default: https://res.cloudinary.com/nataliazharkova
   description: Не редактировать
 pages:
 - data/theme.json
