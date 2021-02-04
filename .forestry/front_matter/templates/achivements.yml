@@ -92,3 +92,5 @@ fields:
       max: 
       step: 
   label: Achivement4
+pages:
+- data/pageBlocks/achivements.json

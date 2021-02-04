@@ -23,7 +23,6 @@ sections:
 - type: document
   path: data/pageBlocks/achivements.json
   label: Achivements
-  match: "**/*"
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
