@@ -22,18 +22,6 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "socials/**/*.md",
-        typeName: "SocialItem",
-        resolveAbsolutePaths: true,
-        remark: {
-          externalLinksTarget: "_blank",
-          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
-        }
-      }
-    },
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
         path: "data/pageBlocks/*.json",
         typeName: "PageBlocks",
         resolveAbsolutePaths: true,

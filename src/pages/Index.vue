@@ -1,18 +1,19 @@
 <template>
   <Layout>
     <h1 v-text="mainScreen.yellow_welcome_label" />
+    <div v-for="edge in $page.blocks.edges" :key="edge.node.id">
+      <h2>{{ edge.node.subtitle }}</h2>
+    </div>
   </Layout>
 </template>
 
 <page-query>
-query Posts {
-  paintBlock: allBlockItem(filter: {key: {eq: "block_paint"}}) {
-    edges {
+query {
+    blocks: allPageBlocks(filter: {page_key: {eq: "mainscreen"}}) {
+      edges {
       node {
-        title
-        description
-        bg_image
-        gallery
+        id
+        subtitle
       }
     }
   }
@@ -27,20 +28,15 @@ export default {
       title: 'Natalia Zharkova'
     }
   },
-  data() {
-    return {
-      mainScreen: require("../../data/pageBlocks/mainscreen.json"),
-    }
-  },
   computed: {
-    paintBlock() {
-      return this.$page.paintBlock.edges[0].node;
+    mainScreen() {
+      return this.$page.blocks.edges;
     },
   },
   methods: {
   },
   mounted() {
-    console.log('PAGE', this);
+    console.log('PAGE', this.$page.blocks, this.mainScreen);
   }
 }
 </script>
