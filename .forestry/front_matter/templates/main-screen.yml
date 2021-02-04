@@ -38,4 +38,4 @@ fields:
     maxSize: 64
   label: Instagram icon
 pages:
-- data/mainscreen.json
+- data/pageBlocks/mainscreen.json
