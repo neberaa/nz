@@ -1,5 +1,5 @@
 ---
-label: 'Theme config '
+label: Main info
 hide_body: true
 fields:
 - type: text
@@ -33,3 +33,18 @@ fields:
   hidden: true
   default: https://res.cloudinary.com/nataliazharkova
   description: Не редактировать
+- name: address
+  type: text
+  config:
+    required: false
+  label: Address
+- name: phone_number
+  type: text
+  config:
+    required: false
+  label: Phone number
+- name: email
+  type: text
+  config:
+    required: false
+  label: Email
