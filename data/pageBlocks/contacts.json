@@ -1,0 +1,21 @@
+{
+  "page_key": "contacts",
+  "section_title": "Contacts",
+  "subtitle": "Have you any questions?",
+  "description": "\nIf you have questions, you can write to me. In addition, if you have any proposals for cooperation, collaborations or organizing events, I will be glad to hear from you! Be sure to contact me if you’re looking for professional freediver.",
+  "form_field1": {
+    "placeholder": "Your name",
+    "type": "Text"
+  },
+  "form_field2": {
+    "placeholder": "Your E-mail",
+    "type": "Email"
+  },
+  "form_field3": {
+    "placeholder": "Message",
+    "type": "Textarea"
+  },
+  "form_button_text": "Send",
+  "thank_you_title": "Thanks for your request!",
+  "thank_you_description": "Will keep you in touch in the nearest future"
+}
