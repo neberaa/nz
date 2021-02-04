@@ -29,7 +29,8 @@ fields:
 - name: courses
   type: blocks
   label: Courses
-  template_types: []
+  template_types:
+  - course-item
   config:
     min: 
     max: 
