@@ -9,9 +9,6 @@ sections:
 - type: document
   path: data/main.json
   label: Main
-- type: document
-  path: data/contacts.json
-  label: Contacts
 - type: heading
   label: CONTENT
 - type: document
