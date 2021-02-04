@@ -34,8 +34,8 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "blocks/**/*.md",
-        typeName: "BlockItem",
+        path: "data/main.json",
+        typeName: "MainData",
         resolveAbsolutePaths: false,
         remark: {
           externalLinksTarget: "_blank",
