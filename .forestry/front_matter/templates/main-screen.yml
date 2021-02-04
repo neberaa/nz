@@ -37,5 +37,12 @@ fields:
   config:
     maxSize: 64
   label: Instagram icon
+- name: page_key
+  type: text
+  config:
+    required: false
+  label: Page key
+  hidden: true
+  default: mainscreen
 pages:
 - data/pageBlocks/mainscreen.json
