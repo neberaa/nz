@@ -28,5 +28,3 @@ fields:
   config:
     required: false
   label: Instagram link
-pages:
-- data/contacts.json
