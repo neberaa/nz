@@ -13,7 +13,9 @@
   },
   "form_field3": {
     "placeholder": "Message",
-    "type": ""
+    "type": "Textarea"
   },
-  "form_button_text": "Send"
+  "form_button_text": "Send",
+  "thank_you_title": "",
+  "thank_you_description": ""
 }
