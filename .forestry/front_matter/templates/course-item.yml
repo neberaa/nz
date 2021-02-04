@@ -72,3 +72,17 @@ fields:
       required: false
     label: Value
   label: Row4
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+- name: read_more_label
+  type: text
+  config:
+    required: false
+  label: Read more label
