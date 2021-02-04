@@ -1,4 +1,35 @@
 ---
 label: Courses
 hide_body: true
-fields: []
+fields:
+- name: section_title
+  type: text
+  config:
+    required: false
+  label: Section title
+- name: header
+  type: text
+  config:
+    required: false
+  label: Header
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+- name: cta_button_text
+  type: text
+  config:
+    required: false
+  label: CTA button text
+- name: courses
+  type: blocks
+  label: Courses
+  template_types: []
+  config:
+    min: 
+    max: 
