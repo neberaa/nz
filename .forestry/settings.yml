@@ -26,7 +26,6 @@ sections:
 - type: document
   path: data/pageBlocks/courses.json
   label: Courses
-  match: "**/*"
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
