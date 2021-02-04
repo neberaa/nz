@@ -51,8 +51,8 @@ export default {
   },
   data() {
     return {
-      IMAGE_URL: require('../../data/theme.json').cloudinary_url,
-      IMAGE_URL_DEFAULT: require('../../data/theme.json').cloudinary_url + '/fl_progressive,q_auto:best',
+      IMAGE_URL: require('../../data/main.json').cloudinary_url,
+      IMAGE_URL_DEFAULT: require('../../data/main.json').cloudinary_url + '/fl_progressive,q_auto:best',
     }
   },
   methods: {
