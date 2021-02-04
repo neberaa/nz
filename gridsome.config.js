@@ -15,7 +15,9 @@ function addStyleResource (rule) {
 
 module.exports = {
   siteName: "Natalia Zharkova",
-  siteUrl: `https://nzh.netlify.com`,
+  // siteUrl: `https://nzh.netlify.com`,
+  siteUrl: 'https://neberaa.github.io',
+  pathPrefix: '/projects/nzh',
   titleTemplate: "%s | Natalia Zharkova",
   siteDescription: "Natalia Zharkova Personal Site",
   plugins: [
@@ -24,7 +26,7 @@ module.exports = {
       options: {
         path: "data/pageBlocks/*.json",
         typeName: "PageBlocks",
-        resolveAbsolutePaths: true,
+        resolveAbsolutePaths: false,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]
@@ -36,7 +38,7 @@ module.exports = {
       options: {
         path: "blocks/**/*.md",
         typeName: "BlockItem",
-        resolveAbsolutePaths: true,
+        resolveAbsolutePaths: false,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]

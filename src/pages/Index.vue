@@ -1,9 +1,8 @@
 <template>
   <Layout>
-    <h1 v-text="mainScreen.yellow_welcome_label" />
     <div v-for="edge in $page.blocks.edges" :key="edge.node.id">
       <h2>{{ edge.node.subtitle }}</h2>
-      <ResponsiveImage :url="edge.node.hero_image"/>
+      <ResponsiveImage style="width:200px;height:300px" :url="edge.node.hero_image"/>
     </div>
 
   </Layout>

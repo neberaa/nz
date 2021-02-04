@@ -10,27 +10,4 @@ export default function(Vue, { head, appOptions  }) {
   Vue.mixin(deviceChecker);
   
   appOptions.store = store;
-  head.link.push(
-    {
-      rel: 'preload',
-      href: '../assets/fonts/poppins-regular-webfont.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: true,
-    },
-    {
-      rel: 'preload',
-      href: '../assets/fonts/poppins-bold-webfont.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: true,
-    },
-    {
-      rel: 'preload',
-      href: '../assets/fonts/playfairdisplay-bold-webfont.woff2',
-      as: 'font',
-      type: 'font/woff2',
-      crossorigin: true,
-    }
-  )
 }
