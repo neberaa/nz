@@ -1,6 +1,6 @@
 <template>
   <Layout>
-      <h1>Hello world</h1>
+    <h1 v-text="mainScreen.yellow_welcome_label" />
   </Layout>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      settings: require("../../data/theme.json"),
+      mainScreen: require("../../data/pageBlocks/mainscreen.json"),
     }
   },
   computed: {
@@ -40,6 +40,7 @@ export default {
   methods: {
   },
   mounted() {
+    console.log('PAGE', this);
   }
 }
 </script>
