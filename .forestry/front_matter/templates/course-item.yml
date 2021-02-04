@@ -86,3 +86,10 @@ fields:
   config:
     required: false
   label: Read more label
+- name: card_fields
+  type: blocks
+  label: Card fields
+  template_types: []
+  config:
+    min: 
+    max: 
