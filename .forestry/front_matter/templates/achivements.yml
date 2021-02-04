@@ -96,7 +96,7 @@ fields:
   type: text
   config:
     required: false
-  label: Page_key
+  label: Page key
   hidden: true
   default: achivements
 pages:
