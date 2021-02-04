@@ -17,6 +17,14 @@ fields:
     schema:
       format: markdown
   label: Key words
+- name: socials
+  type: blocks
+  label: Socials
+  template_types:
+  - social-item
+  config:
+    min: 
+    max: 
 - name: cloudinary_url
   type: text
   config:
