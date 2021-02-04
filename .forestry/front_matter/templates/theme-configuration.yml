@@ -4,31 +4,19 @@ hide_body: true
 fields:
 - type: text
   name: site_name
-  label: Web Site name
+  label: Site name
 - type: textarea
   name: site_description
-  label: Web Site description
-- type: textarea
-  name: hero_title
-  config:
-    wysiwyg: true
-    schema:
-      format: html
-  description: Введите заголовок для главной страницы
-  label: Hero title
-- type: textarea
-  name: hero_subtitle
-  config:
-    wysiwyg: true
-    schema:
-      format: html
-  label: Подзаголовок главной страницы
-  description: 'Введите Подзаголовок для главной страницы '
-- name: footer
-  label: Footer text
-  type: text
-  hidden: false
+  label: Site description
+- name: key_words
+  type: textarea
   default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Key words
 - name: cloudinary_url
   type: text
   config:

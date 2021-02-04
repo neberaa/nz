@@ -29,7 +29,6 @@ sections:
 - type: document
   path: data/pageBlocks/contacts.json
   label: Contacts
-  match: "**/*"
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
