@@ -29,3 +29,10 @@ fields:
   type: image_gallery
   config: {}
   label: Photos
+- name: page_key
+  type: text
+  config:
+    required: false
+  hidden: true
+  label: Page key
+  default: aboutme
