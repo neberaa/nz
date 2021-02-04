@@ -17,6 +17,10 @@ sections:
 - type: document
   path: data/pageBlocks/mainscreen.json
   label: Main Screen
+- type: document
+  path: data/pageBlocks/aboutme.json
+  label: About me
+  match: "**/*"
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
