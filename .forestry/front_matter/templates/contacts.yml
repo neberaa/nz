@@ -103,6 +103,20 @@ fields:
   config:
     required: false
   label: Form button text
+- name: thank_you_title
+  type: text
+  config:
+    required: false
+  label: Thank you title
+- name: thank_you_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Thank you description
 - name: page_key
   type: text
   config:
