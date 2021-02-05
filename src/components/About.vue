@@ -73,10 +73,12 @@ export default {
           flex-basis: calc(70% - 40px);
           margin-left: 40px;
           margin-bottom: 40px;
+          align-items: flex-start;
         }
         &.photos {
           position: relative;
           flex: 1 1 100%;
+          bottom: 100px;
           picture:not(:first-of-type) {
             margin-left: 20px;
           }
