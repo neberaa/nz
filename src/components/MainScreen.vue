@@ -60,12 +60,15 @@ export default {
 <style lang="scss" scoped>
   .main {
     height: 100vh;
+    @include screenBreakpoint2(desktop) {
+      max-width: 1200px;
+    }
+    margin: auto;
     .bordered {
       border: 5px solid $yellow;
       width: 55vw;
       padding: 5vw;
       top: 10vw;
-      left: 10vw;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -81,7 +84,6 @@ export default {
       }
       .title {
         color: $yellow;
-        align-self: center;
       }
      .description {
        font-weight: bold;
