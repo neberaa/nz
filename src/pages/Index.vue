@@ -1,29 +1,19 @@
 <template>
   <Layout>
-    <div v-for="edge in $page.blocks.edges" :key="edge.node.id">
-      <h2>{{ edge.node.subtitle }}</h2>
-      <ResponsiveImage style="width:200px;height:300px" :url="edge.node.hero_image"/>
-    </div>
-
+    <MainScreen />
+    <About />
   </Layout>
 </template>
 
-<page-query>
-query {
-    blocks: allPageBlocks(filter: {page_key: {eq: "mainscreen"}}) {
-      edges {
-      node {
-        id
-        subtitle
-        hero_image
-      }
-    }
-  }
-}
-</page-query>
-
 <script>
+import MainScreen from "@/components/MainScreen";
+import About from "@/components/About";
+
 export default {
+  components: {
+    MainScreen,
+    About,
+  },
   inject: ['resp'],
   metaInfo () {
     return {
@@ -31,14 +21,10 @@ export default {
     }
   },
   computed: {
-    mainScreen() {
-      return this.$page.blocks.edges;
-    },
   },
   methods: {
   },
   mounted() {
-    console.log('PAGE', this.$page.blocks, this.mainScreen);
   }
 }
 </script>

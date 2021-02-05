@@ -24,7 +24,7 @@ module.exports = {
       options: {
         path: "data/pageBlocks/*.json",
         typeName: "PageBlocks",
-        resolveAbsolutePaths: false,
+        resolveAbsolutePaths: true,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]

@@ -1,5 +1,9 @@
 <template>
-  <header class="header" />
+  <transition name="fade" appear>
+    <div class="loading">
+      <h1>Loading....</h1>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -31,13 +35,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .header {
-    position: relative;
+  .loading {
+    position: absolute;
+    z-index: 100;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
-    @include screenBreakpoint2(desktop) {
-      display: none;
-    }
+    justify-content: center;
+    align-items: center;
+    background-color: $yellow;
   }
 
 </style>

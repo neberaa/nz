@@ -1,24 +1,41 @@
 <template>
-  <div class="layout">
-    <Header />
+  <div class="layout" :class="{'loading' :!isLoaded}">
+    <LoadingScreen v-show="!isLoaded"/>
+      <Header />
       <transition name="fade" appear>
-        <main class="page-content">
+        <main class="page-content" v-show="isLoaded">
           <slot/>
         </main>
       </transition>
-    <Footer />
-  </div>
+      <Footer />
+    </div>
 </template>
 
 <script>
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
+import {  mapState, mapMutations } from 'vuex';
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    LoadingScreen
   },
+  computed: {
+    ...mapState([
+      'isLoaded',
+    ]),
+  },
+  methods: {
+    ...mapMutations(['setIsLoaded'])
+  },
+  mounted() {
+    setTimeout(() => {
+      this.setIsLoaded(true);
+    }, 1500);
+  }
 }
 </script>
 
@@ -27,6 +44,7 @@ export default {
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
@@ -41,13 +59,18 @@ body {
     font-size: 16px;
   }
 }
-
 h1 {
   letter-spacing: -0.01em;
   font-size: 2.2rem;
+  &.jumbo {
+    font-size: 4rem;
+  }
 }
 h2 {
   font-size: 2rem;
+  &.jumbo {
+    font-size: 3.75rem;
+  }
 }
 h3 {
   font-size: 1.8rem;
@@ -77,6 +100,17 @@ img {
   max-width: 100%;
 }
 
+.section-title {
+  font-family: 'Playfair-bold';
+  font-size: 4.6rem;
+  color: $yellow;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @include screenBreakpoint2(desktop) {
+    margin-bottom: 50px;
+  }
+}
+
 button {
   border: none;
   overflow: visible;
@@ -98,18 +132,54 @@ button {
   }
 }
 .cta {
+  @include screenBreakpoint2(desktop) {
+    padding: 20px 25px;
+  }
+  position: relative;
   padding: 10px 15px;
-  background: $white;
+  background: transparent;
   font-size: 1rem;
   color: $navy;
   white-space: nowrap;
   font-weight: bold;
-  border: 1px solid $yellow;
+  border: 3px solid $yellow;
   text-align: center;
-  transition: all 300ms ease;
-  &:hover {
-    background: transparent;
-    color: $navy;
+  overflow: hidden;
+  //transition: all 300ms ease;
+  &::before, &::after {
+    background: $yellow;
+    bottom: -10px;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: -10px;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+    -webkit-transition: background 400ms ease-out 0s, -webkit-transform 400ms ease-out 0s;
+    transition: background 400ms ease-out 0s, -webkit-transform 400ms ease-out 0s;
+    transition: transform 400ms ease-out 0s, background 400ms ease-out 0s;
+    transition: transform 400ms ease-out 0s, background 400ms ease-out 0s, -webkit-transform 400ms ease-out 0s;
+    width: 100%;
+    z-index: -1;
+  }
+  &::before {
+    -webkit-transform: translateX(-101%);
+    transform: translateX(-101%);
+    opacity: 0;
+  }
+  &::after {
+    -webkit-transform: translateX(101%);
+    transform: translateX(101%);
+  }
+  &:hover::before {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  &:hover::after {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 0;
   }
   &.small {
     font-size: 0.8rem;
@@ -152,6 +222,11 @@ textarea {
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+  &.loading {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
 .container {
