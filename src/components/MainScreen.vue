@@ -61,7 +61,8 @@ export default {
   .main {
     height: 100vh;
     @include screenBreakpoint2(desktop) {
-      max-width: 1200px;
+      $socials-width: 83px;
+      max-width: calc(1200px - #{$socials-width});
     }
     margin: auto;
     .bordered {

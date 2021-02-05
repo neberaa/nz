@@ -217,7 +217,6 @@ textarea {
 }
 
 .layout {
-  padding: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -232,7 +231,7 @@ textarea {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 6rem;
+  //padding: 0 6rem;
   overflow-x: hidden;
   @include screenBreakpoint2(phone) {
     padding: 0 2rem;

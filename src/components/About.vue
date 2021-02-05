@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section class="about container">
     <h2 class="section-title" v-text="pageData.section_title" />
     <div class="content">
       <div class="column single-photo">

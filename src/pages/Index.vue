@@ -2,17 +2,20 @@
   <Layout>
     <MainScreen />
     <About />
+    <Achivements />
   </Layout>
 </template>
 
 <script>
 import MainScreen from "@/components/MainScreen";
 import About from "@/components/About";
+import Achivements from "@/components/Achivements";
 
 export default {
   components: {
     MainScreen,
     About,
+    Achivements
   },
   inject: ['resp'],
   metaInfo () {
