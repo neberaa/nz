@@ -18,8 +18,8 @@ sections:
   path: data/pageBlocks/aboutme.json
   label: About me
 - type: document
-  path: data/pageBlocks/achivements.json
-  label: Achivements
+  path: data/pageBlocks/achievements.json
+  label: Achievements
 - type: document
   path: data/pageBlocks/courses.json
   label: Courses
