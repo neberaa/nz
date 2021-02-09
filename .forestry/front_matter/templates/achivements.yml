@@ -18,8 +18,8 @@ fields:
   template_types:
   - achievement-item
   config:
-    min:
-    max:
+    min: 
+    max: 
 - name: page_key
   type: text
   config:
