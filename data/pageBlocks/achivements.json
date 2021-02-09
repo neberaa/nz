@@ -16,5 +16,13 @@
   "achivement4": {
     "title": "Meters in depth",
     "number": 104
-  }
+  },
+  "achivements": [
+    {
+      "template": "achivement-item",
+      "title": "World records",
+      "value": "3"
+    }
+  ],
+  "page_key": ""
 }
