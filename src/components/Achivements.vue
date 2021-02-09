@@ -2,8 +2,11 @@
   <section class="achivements">
     <h2 class="section-title" v-text="pageData.section_title" />
     <div
-      class="content"
+      class="background-container"
       :style="`background-image:url(${siteData.cloudinary_url+pageData.background_image})`">
+      <div class="items">
+        <div class="item" v-for="item in pageData.achivements"></div>
+      </div>
     </div>
   </section>
 </template>
@@ -44,7 +47,7 @@ export default {
       max-width: 1200px;
       margin: 0 auto 50px;
     }
-    .content {
+    .background-container {
       display: flex;
       flex-wrap: wrap;
       min-height: 550px;
@@ -52,6 +55,10 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      .content {
+        display: flex;
+        justify-content: space-evenly;
+      }
     }
   }
 
