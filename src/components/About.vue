@@ -74,6 +74,9 @@ export default {
           margin-left: 40px;
           margin-bottom: 40px;
           align-items: flex-start;
+          .article {
+            line-height: 24px;
+          }
         }
         &.photos {
           position: relative;

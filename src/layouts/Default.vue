@@ -138,7 +138,7 @@ button {
   position: relative;
   padding: 10px 15px;
   background: transparent;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: $navy;
   white-space: nowrap;
   font-weight: bold;
