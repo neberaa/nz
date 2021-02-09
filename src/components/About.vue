@@ -76,6 +76,10 @@ export default {
           align-items: flex-start;
           .article {
             line-height: 24px;
+            width: calc((100% - 40px) / 2);
+            &:not(:last-of-type) {
+              margin-right: 20px;
+            }
           }
         }
         &.photos {
