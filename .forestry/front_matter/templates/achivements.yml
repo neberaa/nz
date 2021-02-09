@@ -12,9 +12,9 @@ fields:
   config:
     maxSize: 64
   label: Background image
-- name: achivements
+- name: achievements
   type: blocks
-  label: Achivements
+  label: Achievements
   template_types:
   - achivement-item
   config:
@@ -26,6 +26,6 @@ fields:
     required: false
   label: Page key
   hidden: true
-  default: achivements
+  default: achievements
 pages:
 - data/pageBlocks/achivements.json
