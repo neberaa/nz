@@ -1,5 +1,5 @@
 ---
-label: Achivements
+label: Achievements
 hide_body: true
 fields:
 - name: section_title
@@ -16,10 +16,10 @@ fields:
   type: blocks
   label: Achievements
   template_types:
-  - achivement-item
+  - achievement-item
   config:
-    min: 
-    max: 
+    min:
+    max:
 - name: page_key
   type: text
   config:
@@ -28,4 +28,4 @@ fields:
   hidden: true
   default: achievements
 pages:
-- data/pageBlocks/achivements.json
+- data/pageBlocks/achievements.json
