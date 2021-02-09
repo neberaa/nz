@@ -23,5 +23,27 @@
       "value": "104"
     }
   ],
-  "page_key": "achivements"
+  "page_key": "achivements",
+  "achievements": [
+    {
+      "template": "achievement-item",
+      "title": " world records",
+      "value": "3"
+    },
+    {
+      "template": "achievement-item",
+      "title": " times world  champion",
+      "value": "4"
+    },
+    {
+      "template": "achievement-item",
+      "title": "minutes  breath-hold",
+      "value": "9"
+    },
+    {
+      "template": "achievement-item",
+      "title": "meters in depth",
+      "value": "104"
+    }
+  ]
 }
