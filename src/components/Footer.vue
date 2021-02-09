@@ -4,14 +4,8 @@
 </template>
 
 <script>
-import LocationIcon from '../assets/icons/location.svg';
-import EmailIcon from '../assets/icons/envelope.svg';
-import PhoneIcon from '../assets/icons/telephone.svg';
 export default {
   components: {
-    LocationIcon,
-    EmailIcon,
-    PhoneIcon,
   },
   data() {
     return {

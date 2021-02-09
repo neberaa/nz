@@ -1,21 +1,16 @@
 <template>
-  <section class="achivements">
+  <section class="courses">
     <h2 class="section-title" v-text="pageData.section_title" />
-    <div
-      class="background-container"
-      :style="`background-image:url(${siteData.cloudinary_url+pageData.background_image})`">
-      <div class="items">
-        <div class="item" v-for="item in pageData.achivements">
-          <h4 class="item__value" v-text="item.value" />
-          <h4 class="item__title" v-text="item.title" />
-        </div>
+    <div class="items">
+      <div class="item" v-for="course in pageData.courses">
+        <h4 v-text="course.title" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import pageData from '../../data/pageBlocks/achivements.json';
+import pageData from '../../data/pageBlocks/courses.json';
 import siteData from '../../data/main.json';
 
 export default {

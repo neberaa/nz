@@ -2,20 +2,23 @@
   <Layout>
     <MainScreen />
     <About />
-    <Achivements />
+    <Achievements />
+    <Courses />
   </Layout>
 </template>
 
 <script>
 import MainScreen from "@/components/MainScreen";
 import About from "@/components/About";
-import Achivements from "@/components/Achivements";
+import Achievements from "@/components/Achievements";
+import Courses from "@/components/Courses";
 
 export default {
   components: {
     MainScreen,
     About,
-    Achivements
+    Achievements,
+    Courses,
   },
   inject: ['resp'],
   metaInfo () {
