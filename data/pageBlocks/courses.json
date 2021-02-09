@@ -76,8 +76,8 @@
         },
         {
           "template": "course-card-field",
-          "title": "",
-          "value": ""
+          "title": "Certificate",
+          "value": "WAC"
         }
       ],
       "read_more_label": "Read more"
