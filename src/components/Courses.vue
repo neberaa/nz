@@ -93,6 +93,7 @@ export default {
       .active-data {
         padding: 0 40px;
         display: flex;
+        flex: 0 0 40%;
         flex-direction: column;
         .active-title, .active-description {
           text-align: center;
@@ -110,7 +111,6 @@ export default {
       }
       .carousel-container {
         width: 60%;
-        right: -40px;
         position: relative;
         .arrow {
           position: absolute;
