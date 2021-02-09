@@ -22,6 +22,11 @@
       "template": "achivement-item",
       "title": "World records",
       "value": "3"
+    },
+    {
+      "template": "achivement-item",
+      "title": "Times world champion",
+      "value": "4"
     }
   ],
   "page_key": ""
