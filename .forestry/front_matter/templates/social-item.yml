@@ -1,6 +1,7 @@
 ---
 label: Social Item
 hide_body: true
+display_field: link
 fields:
 - name: link
   type: text

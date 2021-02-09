@@ -1,0 +1,15 @@
+---
+label: Achivement item
+hide_body: true
+display_field: title
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+- name: value
+  type: text
+  config:
+    required: false
+  label: Value
