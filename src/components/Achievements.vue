@@ -65,6 +65,7 @@ export default {
         align-items: center;
         padding: 50px 100px;
         width: 100%;
+        max-width: calc(1200px + 200px + 40px);
         .item {
           display: flex;
           flex-direction: column;

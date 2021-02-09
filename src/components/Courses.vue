@@ -1,9 +1,13 @@
 <template>
-  <section class="courses">
+  <section class="courses container">
     <h2 class="section-title" v-text="pageData.section_title" />
     <div class="items">
-      <div class="item" v-for="course in pageData.courses">
+      <aside class="active-item">
+        <h4 v-text="pageData.courses[activeIndex].title" />
+      </aside>
+      <div class="item" @click="activeIndex=ind" :key="`course-${ind}}`" v-for="(course, ind) in pageData.courses">
         <h4 v-text="course.title" />
+        <p class="course__price" v-text="course.price" />
       </div>
     </div>
   </section>
@@ -11,16 +15,14 @@
 
 <script>
 import pageData from '../../data/pageBlocks/courses.json';
-import siteData from '../../data/main.json';
 
 export default {
-  name: 'Achivements',
+  name: 'Courses',
   inject: ['resp'],
   data() {
     return {
       pageData,
-      siteData,
-      formIsShown: false,
+      activeIndex: 0,
     }
   },
   computed: {
@@ -37,57 +39,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .achivements {
-    margin: 100px 0;
-    width: 100vw;
+  .courses {
+    margin: 100px auto;
     .section-title {
-      text-align: left;
-      max-width: 1200px;
-      margin: 0 auto 50px;
+      text-align: right;
+      margin: 0 auto;
     }
-    .background-container {
+    .items {
+      margin: auto;
       display: flex;
-      flex-wrap: wrap;
-      min-height: 550px;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      .items {
-        margin: auto;
+      justify-content: space-around;
+      align-items: center;
+      padding: 50px 100px;
+      width: 100%;
+      border: 5px solid;
+      border-image: linear-gradient(90deg, rgb(255,245,106), rgb(255,255,255)) 1;
+      .active-item {
+
+      }
+      .item {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 50px 100px;
-        width: 100%;
-        .item {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          padding: 20px;
-          &::before {
-            display: block;
-            content: url('../assets/icons/corona-palmares.png');
-            position: absolute;
-            top: -10px;
-          }
-          h4 {
-            text-align: center;
-          }
-          &__value {
-            font-size: 4.2rem;
-            color: $yellow;
-            margin-bottom: 50px;
-          }
-          &__title {
-            color: $white;
-            font-size: 1.5rem;
-            text-transform: lowercase;
-            padding: 0 60px;
-          }
-        }
+        position: relative;
+        padding: 20px;
+        border: 3px solid $navy;
       }
     }
   }
