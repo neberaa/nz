@@ -79,7 +79,6 @@ export default {
     margin: 100px auto;
     .section-title {
       text-align: right;
-      margin: 0 auto 50px;
     }
     &-content {
       margin: auto;

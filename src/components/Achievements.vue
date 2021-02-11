@@ -44,11 +44,9 @@ export default {
 <style lang="scss" scoped>
   .achievements {
     margin: 100px 0;
-    width: 100vw;
+    width: 100%;
     .section-title {
       text-align: left;
-      max-width: 1200px;
-      margin: 0 auto 50px;
     }
     .background-container {
       display: flex;

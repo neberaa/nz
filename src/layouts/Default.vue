@@ -105,7 +105,8 @@ img {
   font-size: 4.6rem;
   color: $yellow;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  max-width: 1200px;
+  margin: 0 auto 20px;
   @include screenBreakpoint2(desktop) {
     margin-bottom: 50px;
   }
@@ -145,6 +146,7 @@ button {
   border: 3px solid $yellow;
   text-align: center;
   overflow: hidden;
+  min-width: 150px;
   //transition: all 300ms ease;
   &::before, &::after {
     background: $yellow;
@@ -185,6 +187,11 @@ button {
     font-size: 0.8rem;
     padding: 10px;
   }
+  &--navy {
+    border-color: $navy;
+    background: $navy;
+    color: $white;
+  }
 }
 input,
 textarea {
@@ -193,12 +200,25 @@ textarea {
   appearance: none;
 }
 input {
-  height: 45px;
   transition: all 300ms ease;
-  font-family: 'Didact Gothic';
+  font-family: 'Poppins';
   font-size: 1rem;
-  padding: 10px;
+  padding: 10px 5px 5px;
+  color: $navy;
+  border: none;
+  border-bottom: 1px solid $navy;
+  outline: none;
+  line-height: 1.4rem;
+  background: transparent;
+  position: relative;
+  &::placeholder {
+    color: $navy;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+  }
   &:invalid {
+    border-bottom-color: $pink;
+    color: $pink;
   }
   &:focus {
     outline: none;
@@ -206,12 +226,10 @@ input {
 }
 textarea {
   resize: none;
-  border: 1px solid rgba($gray, 0.3);
-  font-family: 'Didact Gothic';
+  font-family: 'Poppins';
   font-size: 1rem;
   padding: 10px;
   &:focus {
-    border: 1px solid rgba($navy, 0.5);
     outline: none;
   }
 }

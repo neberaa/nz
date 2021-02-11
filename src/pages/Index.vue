@@ -4,6 +4,7 @@
     <About />
     <Achievements />
     <Courses />
+    <Contacts />
   </Layout>
 </template>
 
@@ -12,6 +13,7 @@ import MainScreen from "@/components/MainScreen";
 import About from "@/components/About";
 import Achievements from "@/components/Achievements";
 import Courses from "@/components/Courses";
+import Contacts from "@/components/Contacts";
 
 export default {
   components: {
@@ -19,6 +21,7 @@ export default {
     About,
     Achievements,
     Courses,
+    Contacts,
   },
   inject: ['resp'],
   metaInfo () {
