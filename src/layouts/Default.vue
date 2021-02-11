@@ -223,6 +223,9 @@ input {
   &.invalid:focus {
     border-bottom-color: $pink;
     color: $pink;
+    &::placeholder {
+      color: $pink;
+    }
   }
   &:focus {
     outline: none;
