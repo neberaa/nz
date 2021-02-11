@@ -220,6 +220,10 @@ input {
     border-bottom-color: $pink;
     color: $pink;
   }
+  &.invalid:focus {
+    border-bottom-color: $pink;
+    color: $pink;
+  }
   &:focus {
     outline: none;
   }

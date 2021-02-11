@@ -6,36 +6,37 @@
       <p class="description" v-text="pageData.description"/>
       <div class="row">
         <form
-            v-show="!formSubmitted"
-            name="contact"
-            method="POST"
-            netlify
-            class="form"
-            @submit.prevent="handleSubmit">
+          v-show="!formSubmitted"
+          name="contact"
+          method="POST"
+          netlify
+          class="form"
+          @submit.prevent="handleSubmit">
           <input
-              v-show="pageData.form_field1"
-              :required="pageData.form_field1.is_required"
-              :type="pageData.form_field1.type"
-              :placeholder="pageData.form_field1.placeholder"
-              v-model="formData.name"/>
+            :class="{'invalid': pageData.form_field1.is_required && formData.name.length < 1}"
+            v-show="pageData.form_field1"
+            :required="pageData.form_field1.is_required"
+            :type="pageData.form_field1.type"
+            :placeholder="pageData.form_field1.placeholder"
+            v-model="formData.name"/>
           <input
-              v-show="pageData.form_field1"
-              class="with-margin"
-              :required="pageData.form_field1.is_required"
-              :type="pageData.form_field2.type"
-              :placeholder="pageData.form_field2.placeholder"
-              v-model="formData.email"/>
+            :class="{'invalid': pageData.form_field2.is_required && formData.email.length < 1}"
+            v-show="pageData.form_field2"
+            class="with-margin"
+            :type="pageData.form_field2.type"
+            :placeholder="pageData.form_field2.placeholder"
+            v-model="formData.email"/>
           <input
-              v-show="pageData.form_field1"
-              class="full-width"
-              :required="pageData.form_field1.is_required"
-              :type="pageData.form_field3.type"
-              :placeholder="pageData.form_field3.placeholder"
-              v-model="formData.message"/>
+            :class="{'invalid': pageData.form_field3.is_required && formData.message.length < 1}"
+            v-show="pageData.form_field3"
+            class="full-width"
+            :type="pageData.form_field3.type"
+            :placeholder="pageData.form_field3.placeholder"
+            v-model="formData.message"/>
           <input type="hidden" name="form-name" value="contact">
           <button
-              class="cta cta--navy"
-              type="submit">
+            class="cta cta--navy"
+            type="submit">
             {{pageData.form_button_text}}
           </button>
         </form>
@@ -72,7 +73,11 @@ export default {
       pageData,
       siteData,
       formSubmitted: false,
-      formData: {},
+      formData: {
+        name: '',
+        email: '',
+        message: '',
+      },
       errors: [],
     }
   },
@@ -123,10 +128,11 @@ export default {
 
 <style lang="scss" scoped>
   .achievements {
-    margin: 100px auto 30px;
+    margin: 100px auto 0;
     width: 100%;
     max-width: 1200px;
     position: relative;
+    padding-bottom: 30px;
     &::after {
       content: '';
       position: absolute;
@@ -162,6 +168,7 @@ export default {
       }
       .form {
         max-width: 70%;
+        text-align: right;
         input {
           width: 50%;
           margin-bottom: 30px;
