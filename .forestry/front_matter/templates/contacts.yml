@@ -46,6 +46,9 @@ fields:
         file: 
         path: 
     label: Type
+  - name: is_required
+    type: boolean
+    label: Is required
   label: Form field1
 - name: form_field2
   type: field_group
@@ -72,6 +75,9 @@ fields:
         file: 
         path: 
     label: Type
+  - name: is_required
+    type: boolean
+    label: Is required
   label: Form field2
 - name: form_field3
   type: field_group
@@ -98,6 +104,9 @@ fields:
         file: 
         path: 
     label: Type
+  - name: is_required
+    type: boolean
+    label: Is required
   label: Form field3
 - name: form_button_text
   type: text
