@@ -102,10 +102,11 @@ export default {
         }
         .active-description {
           line-height: 24px;
+          font-size: 0.9rem;
         }
         .cta {
-          min-width: 300px;
-          margin-top: 55px;
+          width: clamp(300px, 50%, 70%);
+          margin: 55px auto 0;
         }
       }
       .carousel-container {

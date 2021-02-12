@@ -18,21 +18,21 @@
             :required="pageData.form_field1.is_required"
             :type="pageData.form_field1.type"
             :placeholder="pageData.form_field1.is_required ? `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
-            v-model="formData.name"/>
+            v-model.trim="formData.name"/>
           <input
             :class="{'invalid': pageData.form_field2.is_required && formData.email.length < 1}"
             v-show="pageData.form_field2"
             class="with-margin"
             :type="pageData.form_field2.type"
             :placeholder="pageData.form_field2.is_required ? `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
-            v-model="formData.email"/>
+            v-model.trim="formData.email"/>
           <input
             :class="{'invalid': pageData.form_field3.is_required && formData.message.length < 1}"
             v-show="pageData.form_field3"
             class="full-width"
             :type="pageData.form_field3.type"
             :placeholder="pageData.form_field3.is_required ? `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
-            v-model="formData.message"/>
+            v-model.trim="formData.message"/>
           <input type="hidden" name="form-name" value="contact">
           <button
             class="cta cta--navy"
@@ -184,6 +184,7 @@ export default {
         }
         .cta {
           right: 0;
+          font-weight: 400;
         }
       }
       .contacts {

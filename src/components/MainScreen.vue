@@ -79,12 +79,14 @@ export default {
       .title, .subtitle, .description {
         z-index: 10;
         position: relative;
+        margin-bottom: 1.2rem;
       }
       .title, .subtitle {
         font-family: 'Poppins-bold';
       }
       .title {
         color: $yellow;
+        margin-bottom: 1.4rem;
       }
      .description {
        font-weight: bold;

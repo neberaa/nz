@@ -90,6 +90,7 @@ export default {
             font-size: 1.5rem;
             text-transform: lowercase;
             padding: 0 60px;
+            font-weight: 400;
           }
         }
       }
