@@ -53,7 +53,8 @@ export default {
       return link.indexOf('http') > -1 ? link : `https://${link}`;
     },
     scrollDown() {
-      const height = this.$refs.container.clientHeight;
+      const headerHeight = document.getElementById('header').clientHeight;
+      const height = this.$refs.container.clientHeight + headerHeight;
       window.scrollTo({top: height, behavior: 'smooth'});
     }
   },

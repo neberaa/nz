@@ -3,7 +3,7 @@
     <h2 class="section-title" v-text="pageData.section_title" />
     <div
       class="background-container"
-      :style="`background-image:url(${siteData.cloudinary_url+pageData.background_image})`">
+      :style="`background-image:url(${imageLink})`">
       <div class="items">
         <div class="item" v-for="item in pageData.achivements">
           <h4 class="item__value" v-text="item.value" />
@@ -17,6 +17,7 @@
 <script>
 import pageData from '../../data/pageBlocks/achievements.json';
 import siteData from '../../data/main.json';
+import {mapState} from "vuex";
 
 export default {
   name: 'Achievements',
@@ -26,13 +27,23 @@ export default {
       pageData,
       siteData,
       formIsShown: false,
+      imageLink: `${siteData.cloudinary_url+pageData.background_image}`,
+      mobileImageLink: `${siteData.cloudinary_url+pageData.mobile_background_image}`,
     }
   },
   computed: {
+    ...mapState([
+      'isLoaded',
+    ]),
   },
   methods: {
   },
   watch: {
+    isLoaded(loaded) {
+      if (!this.resp.device.desktop && this.mobileImageLink && this.mobileImageLink.length > 0 && loaded) {
+        this.imageLink = this.mobileImageLink;
+      }
+    }
   },
   beforeMount() {
   },
@@ -45,13 +56,15 @@ export default {
   .achievements {
     margin: 2rem auto 0;
     overflow: hidden;
+    max-width: 1200px;
     @include screenBreakpoint2(desktop) {
-      max-width: 1200px;
       margin: 5rem auto 0;
+      max-width: 100%;
     }
     width: 100%;
     .section-title {
       text-align: left;
+      padding: 0 1.2rem;
     }
     .background-container {
       display: flex;
@@ -63,6 +76,9 @@ export default {
       background-size: cover;
       @include screenBreakpoint2(phone) {
         min-height: 100vh;
+      }
+      @include screenBreakpoint2(tablet) {
+        min-height: 80vh;
       }
       .items {
         margin: auto;
@@ -83,7 +99,7 @@ export default {
           justify-content: center;
           align-items: center;
           position: relative;
-          padding: 20px;
+          padding: 1.2rem;
           &::before {
             content: url('../assets/icons/corona-palmares.png');
             position: absolute;
@@ -93,6 +109,21 @@ export default {
               display: block;
             }
           }
+          &:nth-child(odd) {
+            margin-right: 50vw;
+          }
+          &:nth-child(even) {
+            margin-left: 50vw;
+          }
+          @include screenBreakpoint2(desktop) {
+            &:nth-child(odd) {
+              margin-right: 0;
+            }
+            &:nth-child(even) {
+              margin-left: 0;
+            }
+          }
+
           h4 {
             text-align: center;
           }

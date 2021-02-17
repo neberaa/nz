@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" id="header">
     <div class="container">
       <div class="text">
         <h2 class="title">{{siteData.header_title}}</h2>
