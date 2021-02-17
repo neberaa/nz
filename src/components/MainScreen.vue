@@ -127,6 +127,8 @@ export default {
         width: 50vw;
         max-height: 100vh;
         left: 50vw;
+        top: 0;
+        bottom: 0;
       }
     }
     .cta-container {
@@ -150,6 +152,13 @@ export default {
         background: url('../assets/icons/down-arrow.png') center no-repeat;
         width: 34px;
         height: 18px;
+        cursor: pointer;
+        animation: move 1s infinite;
+      }
+      @keyframes move {
+        0% { transform: translateY(0) }
+        50% { transform: translateY(10px) }
+        100% { transform: translateY(0) }
       }
     }
     .socials {

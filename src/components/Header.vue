@@ -126,6 +126,7 @@ export default {
             color: $white;
             font-size: 3rem;
             text-transform: uppercase;
+            cursor: pointer;
             &--active {
               color: $yellow;
             }
@@ -151,6 +152,7 @@ export default {
         width: 20px;
         height: 30px;
         z-index: 11;
+        cursor: pointer;
         &--open {
           background-image: url('../assets/icons/cancel.png');
           width: 16px;
