@@ -160,7 +160,8 @@ export default {
           }
           &__price {
             margin-bottom: 20px;
-            font-family: 'Poppins-bold';
+            font-family: 'Poppins';
+            font-weight: bold;
             font-size: 1.8rem;
           }
           &__row {

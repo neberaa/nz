@@ -1,5 +1,12 @@
 <template>
-  <header class="header" />
+  <header class="header">
+    <div class="container">
+      <div class="text">
+        <h2 class="title"></h2>
+      </div>
+      <div class="menu-icon" />
+    </div>
+  </header>
 </template>
 
 <script>
@@ -12,8 +19,7 @@ export default {
   inject: ['resp'],
   data() {
     return {
-      logo: require("../../static/logo.png"),
-      settings: require("../../data/main.json"),
+      pageData: require("../../data/main.json"),
       href: null,
     }
   },
@@ -35,6 +41,9 @@ export default {
     position: relative;
     top: 0;
     display: flex;
+    height: 10vh;
+    background-color: $navy;
+    z-index: 10;
     @include screenBreakpoint2(desktop) {
       display: none;
     }

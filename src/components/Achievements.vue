@@ -75,7 +75,7 @@ export default {
             display: block;
             content: url('../assets/icons/corona-palmares.png');
             position: absolute;
-            top: -10px;
+            top: 0;
           }
           h4 {
             text-align: center;
@@ -83,7 +83,8 @@ export default {
           &__value {
             font-size: 4.2rem;
             color: $yellow;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
+            font-weight: 600;
           }
           &__title {
             color: $white;

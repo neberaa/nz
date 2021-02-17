@@ -154,7 +154,8 @@ export default {
       }
       .subtitle {
         font-size: 2.25rem;
-        font-family: 'Playfair-bold';
+        font-family: 'Playfair Display';
+        font-weight: bold;
         margin-bottom: 1rem;
       }
       .description {
@@ -193,7 +194,8 @@ export default {
         display: flex;
         flex-direction: column;
         h5 {
-          font-family: 'Playfair-bold';
+          font-family: 'Playfair Display';
+          font-weight: bold;
           font-size: 1.4rem;
           margin-bottom: 1rem;
         }

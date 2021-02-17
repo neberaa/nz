@@ -1,7 +1,9 @@
 <template>
   <div class="layout" :class="{'loading' :!isLoaded}">
     <LoadingScreen v-show="!isLoaded"/>
-      <Header />
+      <transition name="fade-delay" appear>
+        <Header />
+      </transition>
       <transition name="fade" appear>
         <main class="page-content" v-show="isLoaded">
           <slot/>
@@ -101,7 +103,8 @@ img {
 }
 
 .section-title {
-  font-family: 'Playfair-bold';
+  font-family: 'Playfair Display';
+  font-weight: bold;
   font-size: 4.6rem;
   color: $yellow;
   text-transform: uppercase;
@@ -250,6 +253,9 @@ textarea {
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+    .header, .page-content {
+      opacity: 0;
+    }
   }
 }
 
@@ -311,6 +317,14 @@ textarea {
 }
 .fade-enter {
     opacity: 0;
+}
+
+// Fade
+.fade-delay-enter-active {
+  transition: opacity 2s 400ms;
+}
+.fade-delay-enter {
+  opacity: 0;
 }
 // Fade 400
 .fade400-enter-active {
