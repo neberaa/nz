@@ -60,5 +60,13 @@ fields:
     required: false
   label: Header subtitle
   description: For mobile and tablet only
+- name: mobile_menu_socials
+  type: blocks
+  label: Mobile menu socials
+  template_types:
+  - social-item
+  config:
+    min: 
+    max: 
 pages:
 - data/main.json
