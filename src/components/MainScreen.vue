@@ -1,5 +1,5 @@
 <template>
-  <section class="main" ref="container">
+  <section class="main" ref="container" id="main">
     <div class="bordered">
       <div class="socials">
         <div class="icons">

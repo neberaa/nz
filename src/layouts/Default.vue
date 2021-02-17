@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" :class="{'loading' :!isLoaded}">
+  <div class="layout" :class="[{'loading' :!isLoaded}, {fixed: menuIsOpen}]">
     <LoadingScreen v-show="!isLoaded"/>
       <transition name="fade-delay" appear>
         <Header />
@@ -28,6 +28,7 @@ export default {
   computed: {
     ...mapState([
       'isLoaded',
+      'menuIsOpen',
     ]),
   },
   methods: {
@@ -244,6 +245,12 @@ textarea {
   }
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -256,6 +263,11 @@ textarea {
     .header, .page-content {
       opacity: 0;
     }
+  }
+  &.fixed {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
   }
 }
 

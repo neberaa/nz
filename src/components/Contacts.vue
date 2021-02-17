@@ -1,5 +1,5 @@
 <template>
-  <section class="achievements">
+  <section class="contacts" id="contacts">
     <h2 class="section-title" v-text="pageData.section_title" />
     <div class="content">
       <h4 class="subtitle" v-text="pageData.subtitle"/>
@@ -127,7 +127,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .achievements {
+  .contacts {
     margin: 100px auto 0;
     width: 100%;
     max-width: 1200px;

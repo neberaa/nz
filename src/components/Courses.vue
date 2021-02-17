@@ -1,5 +1,5 @@
 <template>
-  <section class="courses container">
+  <section class="courses container" id="courses">
     <h2 class="section-title" v-text="pageData.section_title" />
     <div class="courses-content">
       <aside class="active-data">
