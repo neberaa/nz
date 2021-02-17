@@ -48,6 +48,10 @@ export default {
 * {
   box-sizing: border-box;
   margin: 0;
+  font-size: 14px;
+  @include screenBreakpoint2(desktop) {
+    font-size: 16px;
+  }
 }
 
 body {

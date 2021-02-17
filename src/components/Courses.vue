@@ -49,7 +49,7 @@ export default {
         "focusOnSelect": true,
         "infinite": true,
         "speed": 500,
-        "slidesToShow": 2,
+        "slidesToShow": this.resp.device.desktop ? 2 : 1,
         "slidesToScroll": 1,
         "touchThreshold": 5,
       }
@@ -76,7 +76,10 @@ export default {
 
 <style lang="scss">
   .courses {
-    margin: 100px auto;
+    margin: 2rem auto 0;
+    @include screenBreakpoint2(desktop) {
+      margin-top: 5rem;
+    }
     .section-title {
       text-align: right;
     }
@@ -87,13 +90,18 @@ export default {
       align-items: flex-start;
       padding: 80px 0 60px;
       width: 100%;
-      border: 5px solid;
-      border-image: linear-gradient(90deg, rgb(255,245,106), rgb(255,255,255)) 1;
+      @include screenBreakpoint2(desktop) {
+        border: 5px solid;
+        border-image: linear-gradient(90deg, rgb(255,245,106), rgb(255,255,255)) 1;
+      }
       .active-data {
         padding: 0 40px;
-        display: flex;
+        display: none;
         flex: 0 0 40%;
         flex-direction: column;
+        @include screenBreakpoint2(desktop) {
+          display: flex;
+        }
         .active-title, .active-description {
           text-align: center;
         }
@@ -110,8 +118,11 @@ export default {
         }
       }
       .carousel-container {
-        width: 60%;
+        width: 100%;
         position: relative;
+        @include screenBreakpoint2(desktop) {
+          width: 60%;
+        }
         .arrow {
           position: absolute;
           background: url('../assets/icons/left-arrow.png') center no-repeat;
@@ -123,16 +134,21 @@ export default {
           &.left {
             top: -50px;
             transform: rotate(-90deg);
-            &:hover {
-              transform: translateX(-20px) rotate(-90deg) scale(1.2);
+            @include screenBreakpoint2(desktop) {
+              &:hover {
+                transform: translateX(-20px) rotate(-90deg) scale(1.2);
+              }
             }
           }
           &.right {
             bottom: -50px;
-            right: 80px;
+            right: 0;
             transform: rotate(90deg);
-            &:hover {
-              transform: translateX(20px) rotate(90deg) scale(1.2);
+            @include screenBreakpoint2(desktop) {
+              right: 80px;
+              &:hover {
+                transform: translateX(20px) rotate(90deg) scale(1.2);
+              }
             }
           }
         }

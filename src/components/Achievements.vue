@@ -109,20 +109,6 @@ export default {
               display: block;
             }
           }
-          &:nth-child(odd) {
-            margin-right: 50vw;
-          }
-          &:nth-child(even) {
-            margin-left: 50vw;
-          }
-          @include screenBreakpoint2(desktop) {
-            &:nth-child(odd) {
-              margin-right: 0;
-            }
-            &:nth-child(even) {
-              margin-left: 0;
-            }
-          }
 
           h4 {
             text-align: center;
