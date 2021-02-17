@@ -19,5 +19,17 @@
   "phone_number": "+380979912499",
   "email": "zharkova.nataliia@gmail.com",
   "header_title": "Natanly Zharkova",
-  "header_subtitle": "world champion & freediving coach"
+  "header_subtitle": "world champion & freediving coach",
+  "mobile_menu_socials": [
+    {
+      "template": "social-item",
+      "link": "facebook.com",
+      "icon": "/v1613580652/nzh/facebook_1_b9d37g.png"
+    },
+    {
+      "template": "social-item",
+      "link": "instagram.com",
+      "icon": "/v1613580672/nzh/instagram_1_rzpsom.png"
+    }
+  ]
 }
