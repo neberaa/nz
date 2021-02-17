@@ -48,5 +48,17 @@ fields:
   config:
     required: false
   label: Email
+- name: header_title
+  type: text
+  config:
+    required: false
+  label: Header title
+  description: For mobile and tablet only
+- name: header_subtitle
+  type: text
+  config:
+    required: false
+  label: Header subtitle
+  description: For mobile and tablet only
 pages:
 - data/main.json
