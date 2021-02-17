@@ -106,13 +106,14 @@ img {
 .section-title {
   font-family: 'Playfair Display';
   font-weight: bold;
-  font-size: 4.6rem;
+  font-size: 2.6rem;
   color: $yellow;
   text-transform: uppercase;
   max-width: 1200px;
-  margin: 0 auto 20px;
+  margin: 0 auto 1rem;
   @include screenBreakpoint2(desktop) {
-    margin-bottom: 50px;
+    margin-bottom: 2.4rem;
+    font-size: 4.6rem;
   }
 }
 
@@ -274,10 +275,10 @@ ul {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  //padding: 0 6rem;
   overflow-x: hidden;
-  @include screenBreakpoint2(phone) {
-    padding: 0 2rem;
+  padding: 0 1.4rem;
+  @include screenBreakpoint2(desktop) {
+    padding: 0;
   }
 }
 

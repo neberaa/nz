@@ -69,17 +69,19 @@ export default {
 
 <style lang="scss" scoped>
   .main {
-    height: 100vh;
     max-width: calc(100% - 140px);
     @include screenBreakpoint2(desktop) {
       $socials-width: 83px;
       max-width: calc(1200px - #{$socials-width});
+      height: 100vh;
     }
     @include screenBreakpoint2(tablet) {
       max-width: 100vw;
+      height: 90vh;
     }
     @include screenBreakpoint2(phone) {
       max-width: 100vw;
+      height: 86vh;
     }
     margin: auto;
     .bordered {
@@ -121,8 +123,8 @@ export default {
       }
     }
     .hero {
-      top: 10vh;
-      bottom: 20vh;
+      top: 14vh;
+      bottom: 26vh;
       @include screenBreakpoint2(desktop) {
         width: 50vw;
         max-height: 100vh;
@@ -130,19 +132,27 @@ export default {
         top: 0;
         bottom: 0;
       }
+      @include screenBreakpoint2(tablet) {
+        top: 10vh;
+        bottom: 20vh;
+      }
     }
     .cta-container {
       display: flex;
       flex-direction: column;
       width: 100vw;
       background-color: $navy;
-      top: 70vh;
-      height: 20vh;
+      top: 60vh;
+      height: 26vh;
       position: relative;
       justify-content: center;
       align-items: center;
       @include screenBreakpoint2(desktop) {
         display: none;
+      }
+      @include screenBreakpoint2(tablet) {
+        top: 70vh;
+        height: 20vh;
       }
       .cta {
         color: $white;

@@ -19,6 +19,13 @@
             </a>
           </li>
         </ul>
+        <div class="social">
+          <a
+            class="social__item"
+            v-for="item in siteData.socials"
+            :href="socialLink(item.link)"
+            :style="`background:url(${siteData.cloudinary_url+item.icon}) center no-repeat`" />
+          </div>
       </div>
     </transition>
   </header>
@@ -79,7 +86,10 @@ export default {
           window.scrollTo({top: topPosition, behavior: 'smooth'});
         }, 200);
       }
-    }
+    },
+    socialLink(link) {
+      return link.indexOf('http') > -1 ? link : `https://${link}`;
+    },
   },
   watch: {
     menuIsOpen(state) {
@@ -98,11 +108,14 @@ export default {
     position: relative;
     top: 0;
     display: flex;
-    height: 10vh;
+    height: 14vh;
     background-color: $navy;
     z-index: 10;
     @include screenBreakpoint2(desktop) {
       display: none;
+    }
+    @include screenBreakpoint2(tablet) {
+      height: 10vh;
     }
     .menu-container {
       position: fixed;
@@ -113,6 +126,7 @@ export default {
       background-color: rgba($navy, 0.8);
       z-index: 10;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       .menu {
@@ -120,11 +134,12 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 1rem;
         &__item {
           margin-bottom: 1rem;
           .link {
             color: $white;
-            font-size: 3rem;
+            font-size: 2rem;
             text-transform: uppercase;
             cursor: pointer;
             &--active {
@@ -133,9 +148,22 @@ export default {
           }
         }
       }
+      .social {
+        display: flex;
+        align-items: center;
+        &__item {
+          width: 33px;
+          height: 33px;
+          margin: auto;
+          display: block;
+          &:not(:last-of-type) {
+            margin-right: 10px;
+          }
+        }
+      }
     }
     .container {
-      width: calc(100vw - 40px);
+      width: 100vw;
       display: flex;
       justify-content: space-between;
       align-items: center;

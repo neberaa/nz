@@ -6,12 +6,17 @@
       <p class="description" v-text="pageData.description"/>
       <div class="row">
         <form
-          v-show="!formSubmitted"
           name="contact"
           method="POST"
-          netlify
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
           class="form"
           @submit.prevent="handleSubmit">
+          <p hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" />
+            </label>
+          </p>
           <input
             :class="{'invalid': pageData.form_field1.is_required && formData.name.length < 1}"
             v-show="pageData.form_field1"
@@ -33,7 +38,7 @@
             :type="pageData.form_field3.type"
             :placeholder="pageData.form_field3.is_required ? `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
             v-model.trim="formData.message"/>
-          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="form-name" value="contact" />
           <button
             class="cta cta--navy"
             type="submit">

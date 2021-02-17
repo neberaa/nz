@@ -43,7 +43,12 @@ export default {
 
 <style lang="scss" scoped>
   .achievements {
-    margin: 100px 0;
+    margin: 2rem auto 0;
+    overflow: hidden;
+    @include screenBreakpoint2(desktop) {
+      max-width: 1200px;
+      margin: 5rem auto 0;
+    }
     width: 100%;
     .section-title {
       text-align: left;
@@ -56,14 +61,22 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      @include screenBreakpoint2(phone) {
+        min-height: 100vh;
+      }
       .items {
         margin: auto;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        padding: 50px 100px;
         width: 100%;
-        max-width: calc(1200px + 200px + 40px);
+        flex-direction: column;
+        max-width: calc(100vw - 1.2rem);
+        @include screenBreakpoint2(desktop) {
+          flex-direction: row;
+          max-width: calc(1200px + 200px + 40px);
+          padding: 50px 100px;
+        }
         .item {
           display: flex;
           flex-direction: column;
@@ -72,19 +85,25 @@ export default {
           position: relative;
           padding: 20px;
           &::before {
-            display: block;
             content: url('../assets/icons/corona-palmares.png');
             position: absolute;
             top: 0;
+            display: none;
+            @include screenBreakpoint2(desktop) {
+              display: block;
+            }
           }
           h4 {
             text-align: center;
           }
           &__value {
-            font-size: 4.2rem;
             color: $yellow;
-            margin-bottom: 20px;
             font-weight: 600;
+            font-size: 3rem;
+            @include screenBreakpoint2(desktop) {
+              margin-bottom: 20px;
+              font-size: 4.2rem;
+            }
           }
           &__title {
             color: $white;
