@@ -45,7 +45,7 @@
             {{pageData.form_button_text}}
           </button>
         </form>
-        <div class="contacts">
+        <div class="contact-info contact-info--desktop">
           <h5>Get in touch:</h5>
           <a :href="`mailto:${siteData.email}`" class="email">{{siteData.email}}</a>
           <a :href="`tel:${siteData.phone_number}`" class="phone">{{siteData.phone_number}}</a>
@@ -59,6 +59,28 @@
                 :style="`background:url(${siteData.cloudinary_url+item.icon}) center no-repeat`" />
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-info contact-info--mobile">
+      <h5>Get in touch:</h5>
+      <a
+        :href="`mailto:${siteData.email}`"
+        class="email">
+        {{siteData.email}}
+      </a>
+      <a
+        :href="`tel:${siteData.phone_number}`"
+        class="phone">
+        {{siteData.phone_number}}
+      </a>
+      <div class="socials">
+        <div class="icons">
+          <a
+            class="social-item"
+            v-for="item in siteData.socials"
+            :href="socialLink(item.link)"
+            :style="`background:url(${siteData.cloudinary_url+item.icon}) center no-repeat`" />
         </div>
       </div>
     </div>
@@ -133,20 +155,24 @@ export default {
 
 <style lang="scss" scoped>
   .contacts {
-    margin: 100px auto 0;
+    max-width: calc(100% - 2.4rem);
     width: 100%;
-    max-width: 1200px;
+    margin: 2rem auto;
     position: relative;
-    padding-bottom: 30px;
-    &::after {
-      content: '';
-      position: absolute;
-      height: 50%;
-      background: $gray;
-      width: 50%;
-      bottom: 0;
-      right: 0;
-      z-index: -1;
+    @include screenBreakpoint2(desktop) {
+      max-width: 1200px;
+      margin-top: 5rem;
+      padding-bottom: 30px;
+      &::after {
+        content: '';
+        position: absolute;
+        height: 50%;
+        background: $gray;
+        width: 50%;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+      }
     }
     .section-title {
       text-align: left;
@@ -154,30 +180,53 @@ export default {
     .content {
       z-index: 1;
       position: relative;
+      background: $gray;
+      padding: 1rem;
+      @include screenBreakpoint2(desktop) {
+        background: none;
+        padding: 0;
+      }
       .subtitle, .description {
-        max-width: 50%;
+        @include screenBreakpoint2(desktop) {
+          max-width: 50%;
+        }
       }
       .subtitle {
         font-size: 2.25rem;
         font-family: 'Playfair Display';
         font-weight: bold;
         margin-bottom: 1rem;
+        @include screenBreakpoint2(phone) {
+          font-size: 1.9rem;
+        }
       }
       .description {
-        font-size: 1.2rem;
+        font-size: 1rem;
         line-height: 1.8rem;
       }
       .row {
         display: flex;
         align-items: flex-start;
-        margin-top: 100px;
+        margin-top: 2rem;
+        @include screenBreakpoint2(desktop) {
+          margin-top: 5rem;
+        }
       }
       .form {
-        max-width: 70%;
-        text-align: right;
+        @include screenBreakpoint2(desktop) {
+          max-width: 70%;
+          text-align: right;
+        }
+        @include screenBreakpoint2(phone) {
+          text-align: center;
+        }
         input {
-          width: 50%;
-          margin-bottom: 30px;
+          margin-bottom: 2rem;
+          width: calc(50% - 20px);
+          @include screenBreakpoint2(phone) {
+            width: 100%;
+            margin-bottom: 1rem;
+          }
           &.full-width {
             width: 100%;
             margin-left: 0;
@@ -185,47 +234,69 @@ export default {
           }
           &.with-margin {
             margin-left: 40px;
-            width: calc(50% - 40px);
+            width: calc(50% - 20px);
+            @include screenBreakpoint2(phone) {
+              width: 100%;
+              margin-left: 0;
+            }
           }
         }
         .cta {
           right: 0;
           font-weight: 400;
-        }
-      }
-      .contacts {
-        max-width: calc(30% - 100px);
-        margin-left: 100px;
-        display: flex;
-        flex-direction: column;
-        h5 {
-          font-family: 'Playfair Display';
-          font-weight: bold;
-          font-size: 1.4rem;
-          margin-bottom: 1rem;
-        }
-        .phone, .email {
-          margin-bottom: 0.6rem;
-          font-size: 0.9rem;
-        }
-        .socials {
-          margin-top: 40px;
-          .icons {
-            display: flex;
-            .social-item {
-              width: 33px;
-              height: 33px;
-              margin: 0;
-              display: block;
-
-              &:not(:last-of-type) {
-                margin-right: 10px;
-              }
-            }
+          @include screenBreakpoint2(phone) {
+            margin: 1rem auto;
+          }
+          @include screenBreakpoint2(tablet) {
+            margin: 1rem auto;
           }
         }
       }
     }
-  }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+      h5 {
+        font-family: 'Playfair Display';
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .phone, .email {
+        margin-bottom: 0.6rem;
+        font-size: 0.9rem;
+      }
+      .socials {
+        margin-top: 2rem;
+        .icons {
+          display: flex;
+          .social-item {
+            width: 33px;
+            height: 33px;
+            margin: 0;
+            display: block;
 
+            &:not(:last-of-type) {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &--mobile {
+        display: flex;
+        @include screenBreakpoint2(desktop) {
+          display: none;
+        }
+      }
+      &--desktop {
+        display: none;
+        max-width: calc(30% - 100px);
+        margin-left: 100px;
+        @include screenBreakpoint2(desktop) {
+          display: flex;
+        }
+      }
+    }
+  }
 </style>

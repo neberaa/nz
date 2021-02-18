@@ -1,6 +1,7 @@
 <template>
   <section class="about container" id="about">
     <h2 class="section-title" v-text="pageData.section_title" />
+    <h4 class="cite" v-text="pageData.cite" />
     <div class="content">
       <div class="column single-photo">
         <ResponsiveImage class="hero" :url="pageData.photos[0]"/>
@@ -82,6 +83,14 @@ export default {
     }
     .section-title {
       text-align: right;
+    }
+    .cite {
+      font-weight: 400;
+      font-size: 2rem;
+      margin: 1rem;
+      @include screenBreakpoint2(desktop) {
+        margin: 1rem 4rem;
+      }
     }
     .content {
       display: flex;

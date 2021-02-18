@@ -8,12 +8,11 @@
         <button class="cta">{{pageData.cta_button_text}}</button>
       </aside>
       <div class="carousel-container">
-        <VueSlickCarousel ref="carousel" v-bind="settings">
+        <VueSlickCarousel @afterChange="setActiveData" ref="carousel" v-bind="settings">
           <div
-              class="item"
-              @click="activeIndex=ind"
-              :key="`course-${ind}}`"
-              v-for="(course, ind) in pageData.courses">
+            class="item"
+            :key="`course-${ind}}`"
+            v-for="(course, ind) in pageData.courses">
             <h4 class="item__title" v-text="course.title" />
             <p class="item__price" v-text="course.price" />
             <div class="item__row" v-for="row in course.card_fields">
@@ -25,7 +24,25 @@
         <div class="arrow left" @click="showNext()"/>
         <div class="arrow right" @click="showPrev()"/>
       </div>
-
+      <div class="items" ref="items">
+        <div
+          class="item"
+          :class="{'item--short': expandedInd !== ind}"
+          :key="`course-${ind}}`"
+          v-for="(course, ind) in pageData.courses">
+          <h4 class="item__title" v-text="course.title" />
+          <p class="item__price" v-text="course.price" />
+          <button
+            class="read-more"
+            :class="{invisible: expandedInd !== ind}"
+            @click="setFullHeight(ind)">{{course.read_more_label}}</button>
+          <div class="item__row" v-for="row in course.card_fields">
+            <p v-text="row.title" />
+            <p v-text="row.value" />
+          </div>
+          <button class="cta">Get it</button>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -52,7 +69,9 @@ export default {
         "slidesToShow": 2,
         "slidesToScroll": 1,
         "touchThreshold": 5,
-      }
+      },
+      expandedInd: null,
+      minHeight: '175px',
     }
   },
   computed: {
@@ -64,6 +83,21 @@ export default {
     showPrev() {
       this.$refs.carousel.prev();
     },
+    resetHeight() {
+      this.$refs.items.childNodes.forEach(item => item.style.height = this.minHeight);
+    },
+    setActiveData(ind) {
+      this.activeIndex = ind;
+    },
+    setFullHeight(ind) {
+      this.resetHeight();
+      this.expandedInd = ind;
+      const activeItem = this.$refs.items.childNodes[ind];
+      let sum = 0;
+      activeItem.childNodes.forEach(item => sum += item.offsetHeight);
+      const indent = '1.4rem * 2 + 2rem';
+      activeItem.style.height = `calc(${sum}px + ${indent})`;
+    }
   },
   watch: {
   },
@@ -94,13 +128,24 @@ export default {
         border: 5px solid;
         border-image: linear-gradient(90deg, rgb(255,245,106), rgb(255,255,255)) 1;
       }
+      @include screenBreakpoint2(phone) {
+        padding: 2rem 0;
+      }
+      @include screenBreakpoint2(tablet) {
+        flex-direction: column;
+      }
       .active-data {
         padding: 0 40px;
-        display: none;
+        display: flex;
         flex: 0 0 40%;
         flex-direction: column;
-        @include screenBreakpoint2(desktop) {
-          display: flex;
+        @include screenBreakpoint2(phone) {
+          display: none;
+        }
+        @include screenBreakpoint2(tablet) {
+          flex-basis: 100%;
+          order: 2;
+          margin-top: 3rem;
         }
         .active-title, .active-description {
           text-align: center;
@@ -115,6 +160,9 @@ export default {
         .cta {
           width: clamp(300px, 50%, 70%);
           margin: 55px auto 0;
+          @include screenBreakpoint2(tablet) {
+            width: clamp(200px, 20%, 30%);
+          }
         }
       }
       .carousel-container {
@@ -122,6 +170,9 @@ export default {
         position: relative;
         @include screenBreakpoint2(desktop) {
           width: 60%;
+        }
+        @include screenBreakpoint2(phone) {
+          display: none;
         }
         .arrow {
           position: absolute;
@@ -163,30 +214,74 @@ export default {
             transform: scale(1);
           }
         }
+      }
+      .items {
+        display: none;
+        @include screenBreakpoint2(phone) {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
         .item {
-          cursor: pointer;
-          align-items: center;
-          position: relative;
-          padding: 40px 20px 90px;
-          border: 3px solid $navy;
-          text-align: center;
+          //height: 175px;
+          transition: height 600ms ease;
+          overflow: hidden;
+          cursor: default;
+          padding: 1.2rem;
+          &:not(:last-of-type) {
+            margin-bottom: 2rem;
+          }
+          &--short {
+            height: 175px;
+          }
           &__title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 2rem;
+            margin-bottom: 0;
           }
           &__price {
-            margin-bottom: 20px;
-            font-family: 'Poppins';
-            font-weight: bold;
-            font-size: 1.8rem;
+            margin: 0;
+            padding-bottom: 1.4rem;
           }
-          &__row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid $navy;
-            padding: 35px 0 5px;
+          .read-more {
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            color: $yellow;
+            text-align: right;
+            opacity: 0;
+            transition: opacity 400ms ease;
+            &.invisible {
+              opacity: 1;
+            }
           }
+          .cta {
+            margin-top: 2rem;
+          }
+        }
+      }
+
+      .item {
+        cursor: pointer;
+        align-items: center;
+        position: relative;
+        padding: 40px 20px 90px;
+        border: 3px solid $navy;
+        text-align: center;
+        &__title {
+          font-size: 1.8rem;
+          margin-bottom: 10px;
+        }
+        &__price {
+          margin-bottom: 20px;
+          font-family: 'Poppins';
+          font-weight: bold;
+          font-size: 1.8rem;
+        }
+        &__row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid $navy;
+          padding: 35px 0 5px;
         }
       }
     }
