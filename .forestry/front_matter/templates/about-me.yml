@@ -7,6 +7,15 @@ fields:
   config:
     required: false
   label: Section title
+- name: cite
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: CIte
 - name: left_column_text
   type: textarea
   default: ''
