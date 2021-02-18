@@ -36,5 +36,14 @@ fields:
   hidden: true
   label: Page key
   default: aboutme
+- name: cite
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: CIte
 pages:
 - data/pageBlocks/aboutme.json
