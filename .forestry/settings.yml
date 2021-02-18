@@ -11,7 +11,7 @@ sections:
   label: Main
 - type: document
   path: data/courseForm.json
-  label: Apply to a course
+  label: FORM - Apply to a course
 - type: heading
   label: PAGE SECTIONS
 - type: document
