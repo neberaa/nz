@@ -5,12 +5,12 @@ admin_path: "/static/admin"
 webhook_url: 
 sections:
 - type: heading
-  label: INFO
+  label: GLOBAL
 - type: document
   path: data/main.json
   label: Main
 - type: heading
-  label: CONTENT
+  label: PAGE SECTIONS
 - type: document
   path: data/pageBlocks/mainscreen.json
   label: Main Screen
