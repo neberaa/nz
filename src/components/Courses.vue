@@ -5,7 +5,7 @@
       <aside class="active-data">
         <h4 class="active-title">About the course</h4>
         <p class="active-description" v-text="pageData.courses[activeIndex].description" />
-        <button class="cta">{{pageData.cta_button_text}}</button>
+        <button @click="openModal" class="cta">{{pageData.cta_button_text}}</button>
       </aside>
       <div class="carousel-container">
         <VueSlickCarousel @afterChange="setActiveData" ref="carousel" v-bind="settings">
@@ -37,15 +37,49 @@
             class="read-more"
             :class="{invisible: expandedInd !== ind}"
             @click="setFullHeight(ind)">{{course.read_more_label}}</button>
-          <p class="item__description" v-text="pageData.courses[activeIndex].description" />
+          <p class="item__description" v-text="course.description" />
           <div class="item__row" v-for="row in course.card_fields">
             <p v-text="row.title" />
             <p v-text="row.value" />
           </div>
-          <button class="cta">Get it</button>
+          <button class="cta" @click="openModal">Get it</button>
         </div>
       </div>
     </div>
+    <transition name="fade400">
+      <div class="modal-container" v-show="modalIsShown">
+        <div class="overlay" @click="closeModal"/>
+        <div class="modal">
+          <h2>Hello</h2>
+          <p>Test description</p>
+          <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              class="form"
+              @submit.prevent="handleSubmit">
+            <p hidden>
+              <label>
+                Don’t fill this out: <input name="bot-field" />
+              </label>
+            </p>
+            <input
+                v-model.trim="formData.name"/>
+            <input
+                v-model.trim="formData.email"/>
+            <input
+                v-model.trim="formData.message"/>
+            <input type="hidden" name="form-name" value="contact" />
+            <button
+                class="cta cta--navy"
+                type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -71,9 +105,16 @@ export default {
         "slidesToShow": 2,
         "slidesToScroll": 1,
         "touchThreshold": 5,
+        "autoplay": false,
       },
       expandedInd: null,
       minHeight: '175px',
+      modalIsShown: false,
+      formData: {
+        name: '',
+        email: '',
+        message: '',
+      },
     }
   },
   computed: {
@@ -89,7 +130,7 @@ export default {
       this.$refs.items.childNodes.forEach(item => item.style.height = this.minHeight);
     },
     setActiveData(ind) {
-      this.activeIndex = ind;
+        this.activeIndex = ind;
     },
     setFullHeight(ind) {
       this.resetHeight();
@@ -99,7 +140,13 @@ export default {
       activeItem.childNodes.forEach(item => sum += item.offsetHeight);
       const indent = '1.4rem * 2 + 2rem';
       activeItem.style.height = `calc(${sum}px + ${indent})`;
-    }
+    },
+    closeModal() {
+      this.modalIsShown = false;
+    },
+    openModal() {
+      this.modalIsShown = true;
+    },
   },
   watch: {
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :class="[{'loading' :!isLoaded}, {fixed: menuIsOpen}]">
     <LoadingScreen v-show="!isLoaded"/>
-      <transition name="fade-delay" appear>
+      <transition name="fade" appear>
         <Header />
       </transition>
       <transition name="fade" appear>
@@ -283,6 +283,33 @@ ul {
   padding: 0 1.4rem;
   @include screenBreakpoint2(desktop) {
     padding: 0;
+  }
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($white, 0.9);
+  }
+  .modal {
+    border: 3px solid $yellow;
+    background: $white;
+    padding: 2rem;
+    z-index: 92;
+    max-width: calc(100% - 2.4rem);
   }
 }
 
