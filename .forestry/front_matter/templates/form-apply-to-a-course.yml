@@ -1,0 +1,64 @@
+---
+label: FORM - apply to a course
+hide_body: true
+fields:
+- type: text
+  name: page_key
+  label: page_key
+- type: text
+  name: section_title
+  label: section_title
+- type: text
+  name: subtitle
+  label: subtitle
+- type: textarea
+  name: description
+  label: description
+- type: field_group
+  name: form_field1
+  label: form_field1
+  fields:
+  - type: text
+    name: placeholder
+    label: placeholder
+  - type: text
+    name: type
+    label: type
+  - type: boolean
+    name: is_required
+    label: is_required
+- type: field_group
+  name: form_field2
+  label: form_field2
+  fields:
+  - type: text
+    name: placeholder
+    label: placeholder
+  - type: text
+    name: type
+    label: type
+  - type: boolean
+    name: is_required
+    label: is_required
+- type: field_group
+  name: form_field3
+  label: form_field3
+  fields:
+  - type: text
+    name: placeholder
+    label: placeholder
+  - type: text
+    name: type
+    label: type
+  - type: boolean
+    name: is_required
+    label: is_required
+- type: text
+  name: form_button_text
+  label: form_button_text
+- type: text
+  name: thank_you_title
+  label: thank_you_title
+- type: text
+  name: thank_you_description
+  label: thank_you_description
