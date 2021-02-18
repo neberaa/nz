@@ -22,7 +22,7 @@
         <div class="social">
           <a
             class="social__item"
-            v-for="item in siteData.socials"
+            v-for="item in siteData.mobile_menu_socials"
             :href="socialLink(item.link)"
             :style="`background:url(${siteData.cloudinary_url+item.icon}) center no-repeat`" />
           </div>
@@ -134,7 +134,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 1.6rem;
         &__item {
           margin-bottom: 1rem;
           .link {

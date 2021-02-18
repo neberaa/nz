@@ -49,7 +49,7 @@ export default {
         "focusOnSelect": true,
         "infinite": true,
         "speed": 500,
-        "slidesToShow": this.resp.device.desktop ? 2 : 1,
+        "slidesToShow": 2,
         "slidesToScroll": 1,
         "touchThreshold": 5,
       }

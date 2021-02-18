@@ -1,5 +1,9 @@
 <template>
-  <section class="main" ref="container" id="main">
+  <section
+    class="main"
+    :style="{height: sectionHeight}"
+    ref="container"
+    id="main">
     <div class="bordered">
       <div class="socials">
         <div class="icons">
@@ -32,6 +36,7 @@
 <script>
 import pageData from '../../data/pageBlocks/mainscreen.json';
 import siteData from '../../data/main.json';
+import { mapState } from 'vuex';
 
 export default {
   name: 'MainScreen',
@@ -41,9 +46,11 @@ export default {
       pageData,
       siteData,
       formIsShown: false,
+      sectionHeight: '100vh',
     }
   },
   computed: {
+    ...mapState(['isLoaded']),
   },
   methods: {
     showSignUpForm() {
@@ -56,9 +63,18 @@ export default {
       const headerHeight = document.getElementById('header').clientHeight;
       const height = this.$refs.container.clientHeight + headerHeight;
       window.scrollTo({top: height, behavior: 'smooth'});
+    },
+    calcScreenHeight() {
+      const headerHeight = document.getElementById('header').clientHeight;
+      this.sectionHeight = `${window.innerHeight - headerHeight}px`;
     }
   },
   watch: {
+    isLoaded(loaded) {
+      if (loaded && !this.resp.device.desktop) {
+        this.calcScreenHeight();
+      }
+    }
   },
   beforeMount() {
   },
@@ -71,18 +87,16 @@ export default {
 <style lang="scss" scoped>
   .main {
     max-width: calc(100% - 140px);
+    position: relative;
     @include screenBreakpoint2(desktop) {
       $socials-width: 83px;
       max-width: calc(1200px - #{$socials-width});
-      height: 100vh;
     }
     @include screenBreakpoint2(tablet) {
       max-width: 100vw;
-      height: 90vh;
     }
     @include screenBreakpoint2(phone) {
       max-width: 100vw;
-      height: 86vh;
     }
     margin: auto;
     .bordered {
@@ -124,18 +138,17 @@ export default {
       }
     }
     .hero {
-      top: 14vh;
-      bottom: 26vh;
+      height: 70%;
       @include screenBreakpoint2(desktop) {
         width: 50vw;
         max-height: 100vh;
         left: 50vw;
         top: 0;
         bottom: 0;
+        height: auto;
       }
       @include screenBreakpoint2(tablet) {
-        top: 10vh;
-        bottom: 20vh;
+        height: 80%;
       }
     }
     .cta-container {
@@ -143,8 +156,8 @@ export default {
       flex-direction: column;
       width: 100vw;
       background-color: $navy;
-      top: 60vh;
-      height: 26vh;
+      top: 70%;
+      height: 30%;
       position: relative;
       justify-content: center;
       align-items: center;
@@ -152,8 +165,8 @@ export default {
         display: none;
       }
       @include screenBreakpoint2(tablet) {
-        top: 70vh;
-        height: 20vh;
+        top: 80%;
+        height: 20%;
       }
       .cta {
         color: $white;
