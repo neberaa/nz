@@ -37,6 +37,7 @@
             class="read-more"
             :class="{invisible: expandedInd !== ind}"
             @click="setFullHeight(ind)">{{course.read_more_label}}</button>
+          <p class="item__description" v-text="pageData.courses[activeIndex].description" />
           <div class="item__row" v-for="row in course.card_fields">
             <p v-text="row.title" />
             <p v-text="row.value" />
@@ -284,6 +285,9 @@ export default {
           align-items: center;
           border-bottom: 1px solid $navy;
           padding: 35px 0 5px;
+        }
+        &__description {
+          padding-top: 2rem;
         }
       }
     }
