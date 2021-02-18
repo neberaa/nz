@@ -33,6 +33,7 @@
           <h4 class="item__title" v-text="course.title" />
           <p class="item__price" v-text="course.price" />
           <button
+            v-show="expandedInd !== ind"
             class="read-more"
             :class="{invisible: expandedInd !== ind}"
             @click="setFullHeight(ind)">{{course.read_more_label}}</button>
@@ -122,17 +123,18 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding: 80px 0 60px;
       width: 100%;
       @include screenBreakpoint2(desktop) {
         border: 5px solid;
         border-image: linear-gradient(90deg, rgb(255,245,106), rgb(255,255,255)) 1;
+        padding: 80px 0 60px;
       }
       @include screenBreakpoint2(phone) {
-        padding: 2rem 0;
+        padding: 1rem 0;
       }
       @include screenBreakpoint2(tablet) {
         flex-direction: column;
+        padding: 2rem 0;
       }
       .active-data {
         padding: 0 40px;
