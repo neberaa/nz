@@ -135,4 +135,5 @@ fields:
   label: Page key
   default: contacts
 pages:
+- data/courseForm.json
 - data/pageBlocks/contacts.json
