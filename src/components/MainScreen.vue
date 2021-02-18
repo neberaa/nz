@@ -171,6 +171,7 @@ export default {
       .cta {
         color: $white;
         margin-bottom: 1.4rem;
+        font-weight: 400;
       }
       .arrow {
         background: url('../assets/icons/down-arrow.png') center no-repeat;
