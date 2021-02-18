@@ -2,17 +2,16 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/static/admin"
-webhook_url:
+webhook_url: 
 sections:
-- type: document
-  path: data/courseForm.json
-  label: Apply to a course
-  match: "**/*"
 - type: heading
   label: GLOBAL
 - type: document
   path: data/main.json
   label: Main
+- type: document
+  path: data/courseForm.json
+  label: Apply to a course
 - type: heading
   label: PAGE SECTIONS
 - type: document
@@ -33,7 +32,7 @@ sections:
 upload_dir: nzh
 public_path: ''
 front_matter_path: ''
-use_front_matter_path:
+use_front_matter_path: 
 file_template: ":filename:"
 build:
   preview_output_directory: dist
