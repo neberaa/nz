@@ -89,11 +89,11 @@ fields:
 - type: text
   name: thank_you_title
   label: Thank you title
-- name: thank_you_title_highlited
+- name: thank_you_title_highlighted
   type: text
   config:
     required: false
-  label: Thank you title highlited
+  label: Thank you title highlighted
 - type: text
   name: thank_you_description
   label: Thank you description
