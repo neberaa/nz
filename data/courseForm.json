@@ -8,9 +8,9 @@
     "is_required": false
   },
   "form_field2": {
-    "type": "",
-    "placeholder": "",
-    "is_required": false
+    "type": "Email",
+    "placeholder": "Your e-mail",
+    "is_required": true
   },
   "form_field3": {
     "type": [
