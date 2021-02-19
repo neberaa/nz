@@ -5,7 +5,7 @@
       <aside class="active-data">
         <h4 class="active-title">About the course</h4>
         <p class="active-description" v-text="pageData.courses[activeIndex].description" />
-        <button @click="openModal" class="cta">{{pageData.cta_button_text}}</button>
+        <button @click="openModal(pageData.courses[activeIndex])" class="cta">{{pageData.cta_button_text}}</button>
       </aside>
       <div class="carousel-container">
         <VueSlickCarousel @afterChange="setActiveData" ref="carousel" v-bind="settings">
@@ -42,7 +42,7 @@
             <p v-text="row.title" />
             <p v-text="row.value" />
           </div>
-          <button class="cta" @click="openModal">Get it</button>
+          <button class="cta" @click="openModal(course)">Get it</button>
         </div>
       </div>
     </div>
@@ -50,31 +50,49 @@
       <div class="modal-container" v-show="modalIsShown">
         <div class="overlay" @click="closeModal"/>
         <div class="modal">
-          <h2>Hello</h2>
-          <p>Test description</p>
+          <header class="modal-header">
+            <h2 class="title">You chose the <span>{{selectedCourse.title}}</span> course</h2>
+            <h2 class="price" v-text="`${selectedCourse.price}`"/>
+          </header>
+          <p v-text="courseForm.description" />
           <form
-              name="course-submit"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              class="form"
-              @submit.prevent="handleSubmit">
+            name="course-submit"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            class="form"
+            @submit.prevent="handleSubmit">
             <p hidden>
               <label>
                 Don’t fill this out: <input name="bot-field" />
               </label>
             </p>
             <input
-                v-model.trim="formData.name"/>
+              :class="{'invalid': courseForm.form_field1.is_required && formData.name.length < 1}"
+              v-show="courseForm.form_field1"
+              :required="courseForm.form_field1.is_required"
+              :type="courseForm.form_field1.type"
+              :placeholder="courseForm.form_field1.is_required ? `${courseForm.form_field1.placeholder} *` : courseForm.form_field1.placeholder"
+              v-model.trim="formData.name"/>
             <input
-                v-model.trim="formData.email"/>
+              :class="{'invalid': courseForm.form_field2.is_required && formData.email.length < 1}"
+              v-show="courseForm.form_field2"
+              :required="courseForm.form_field2.is_required"
+              :type="courseForm.form_field2.type"
+              :placeholder="courseForm.form_field2.is_required ? `${courseForm.form_field2.placeholder} *` : courseForm.form_field2.placeholder"
+              v-model.trim="formData.email"/>
             <input
-                v-model.trim="formData.message"/>
+              :class="{'invalid': courseForm.form_field3.is_required && formData.message.length < 1}"
+              v-show="courseForm.form_field3"
+              :required="courseForm.form_field3.is_required"
+              :type="courseForm.form_field3.type"
+              :placeholder="courseForm.form_field3.is_required ? `${courseForm.form_field3.placeholder} *` : courseForm.form_field3.placeholder"
+              v-model.trim="formData.message"/>
             <input type="hidden" name="form-name" value="course-submit" />
             <button
                 class="cta cta--navy"
                 type="submit">
-              {{courseForm.}}
+              {{courseForm.form_button_text}}
             </button>
           </form>
         </div>
@@ -96,6 +114,7 @@ export default {
   data() {
     return {
       pageData,
+      courseForm,
       activeIndex: 0,
       settings: {
         "dots": false,
@@ -116,6 +135,7 @@ export default {
         email: '',
         message: '',
       },
+      selectedCourse: {},
     }
   },
   computed: {
@@ -145,8 +165,9 @@ export default {
     closeModal() {
       this.modalIsShown = false;
     },
-    openModal() {
+    openModal(selected) {
       this.modalIsShown = true;
+      this.selectedCourse = selected;
     },
   },
   watch: {
@@ -274,7 +295,6 @@ export default {
           width: 100%;
         }
         .item {
-          //height: 175px;
           transition: height 600ms ease;
           overflow: hidden;
           cursor: default;
@@ -336,6 +356,32 @@ export default {
         }
         &__description {
           padding-top: 2rem;
+        }
+      }
+    }
+    .modal {
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        @include screenBreakpoint2(desktop) {
+          margin-bottom: 4rem;
+        }
+        & > * {
+          font-family: "Playfair Display";
+        }
+        .title {
+          color: $navy;
+          margin-right: 1rem;
+          span {
+            color: $yellow;
+            text-transform: uppercase;
+            font-size: 2rem;
+          }
+        }
+        .price {
+          color: $yellow;
         }
       }
     }

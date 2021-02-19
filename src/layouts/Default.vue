@@ -310,6 +310,12 @@ ul {
     padding: 2rem;
     z-index: 92;
     max-width: calc(100% - 2.4rem);
+    max-height: 80vh;
+    overflow: auto;
+    @include screenBreakpoint2(desktop) {
+      max-width: 1200px;
+      padding: 4rem;
+    }
   }
 }
 
