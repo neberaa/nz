@@ -4,10 +4,10 @@ hide_body: true
 fields:
 - type: textarea
   name: description
-  label: description
+  label: Description
 - type: field_group
   name: form_field1
-  label: form_field1
+  label: Form field
   fields:
   - type: text
     name: placeholder
@@ -30,10 +30,10 @@ fields:
     label: type
   - type: boolean
     name: is_required
-    label: is_required
+    label: Is required
 - type: field_group
   name: form_field2
-  label: form_field2
+  label: Form field
   fields:
   - type: text
     name: placeholder
@@ -59,7 +59,7 @@ fields:
     label: is_required
 - type: field_group
   name: form_field3
-  label: form_field3
+  label: Form field
   fields:
   - type: text
     name: placeholder
@@ -85,13 +85,18 @@ fields:
     label: is_required
 - type: text
   name: form_button_text
-  label: form_button_text
+  label: Form button text
 - type: text
   name: thank_you_title
-  label: thank_you_title
+  label: Thank you title
+- name: thank_you_title_highlited
+  type: text
+  config:
+    required: false
+  label: Thank you title highlited
 - type: text
   name: thank_you_description
-  label: thank_you_description
+  label: Thank you description
 - type: text
   name: page_key
   label: page_key
