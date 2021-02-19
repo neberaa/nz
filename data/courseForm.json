@@ -3,10 +3,8 @@
   "subtitle": "Test subtitle",
   "description": "Lorem ipsummain.jsonmain.jsonmain.jsonmain.jsonmain.jsonmain.json main.jsonmain.json main.json main.json main.json main.json",
   "form_field1": {
-    "type": [
-
-    ],
-    "placeholder": "",
+    "type": "",
+    "placeholder": "Your name",
     "is_required": false
   },
   "form_field2": {
