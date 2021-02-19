@@ -142,7 +142,7 @@ export default {
       @include screenBreakpoint2(desktop) {
         width: 50vw;
         max-height: 100vh;
-        left: 50vw;
+        left: 50%;
         top: 0;
         bottom: 0;
         height: auto;

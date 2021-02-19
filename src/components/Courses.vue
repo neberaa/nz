@@ -53,7 +53,7 @@
           <h2>Hello</h2>
           <p>Test description</p>
           <form
-              name="contact"
+              name="course-submit"
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
@@ -70,11 +70,11 @@
                 v-model.trim="formData.email"/>
             <input
                 v-model.trim="formData.message"/>
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="course-submit" />
             <button
                 class="cta cta--navy"
                 type="submit">
-              Submit
+              {{courseForm.}}
             </button>
           </form>
         </div>
@@ -85,6 +85,7 @@
 
 <script>
 import pageData from '../../data/pageBlocks/courses.json';
+import courseForm from '../../data/courseForm.json';
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 
