@@ -19,7 +19,8 @@
   },
   "page_key": "contacts",
   "form_button_text": "Send",
-  "thank_you_title": "Thanks for contacting us. Your application has been accepted.",
+  "thank_you_title": "Thanks for contacting us. Your application ",
   "thank_you_description": "We will contact you shortly.",
-  "section_title": ""
+  "section_title": "",
+  "thank_you_title_highlited": "has been accepted."
 }
