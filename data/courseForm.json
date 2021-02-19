@@ -8,9 +8,7 @@
     "is_required": false
   },
   "form_field2": {
-    "type": [
-
-    ],
+    "type": "",
     "placeholder": "",
     "is_required": false
   },
