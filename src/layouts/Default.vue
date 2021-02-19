@@ -315,6 +315,7 @@ ul {
     @include screenBreakpoint2(desktop) {
       max-width: 1200px;
       padding: 4rem;
+      border: 5px solid $yellow;
     }
   }
 }
