@@ -2,16 +2,6 @@
 label: FORM - apply to a course
 hide_body: true
 fields:
-- type: text
-  name: page_key
-  label: page_key
-  hidden: true
-- type: text
-  name: title
-  label: title
-- type: text
-  name: subtitle
-  label: subtitle
 - type: textarea
   name: description
   label: description
@@ -63,5 +53,9 @@ fields:
 - type: text
   name: thank_you_description
   label: thank_you_description
+- type: text
+  name: page_key
+  label: page_key
+  hidden: true
 pages:
 - data/courseForm.json
