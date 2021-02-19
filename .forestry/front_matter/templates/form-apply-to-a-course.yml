@@ -12,8 +12,21 @@ fields:
   - type: text
     name: placeholder
     label: placeholder
-  - type: text
-    name: type
+  - name: type
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - Text
+      - Email
+      - Phone
+      - Textarea
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
     label: type
   - type: boolean
     name: is_required
@@ -25,8 +38,21 @@ fields:
   - type: text
     name: placeholder
     label: placeholder
-  - type: text
-    name: type
+  - name: type
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - Text
+      - Email
+      - Phone
+      - Textarea
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
     label: type
   - type: boolean
     name: is_required
@@ -38,8 +64,21 @@ fields:
   - type: text
     name: placeholder
     label: placeholder
-  - type: text
-    name: type
+  - name: type
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - Text
+      - Email
+      - Phone
+      - Textarea
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
     label: type
   - type: boolean
     name: is_required
