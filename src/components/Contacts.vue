@@ -10,8 +10,7 @@
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          class="form"
-          @submit.prevent="handleSubmit">
+          class="form">
           <p hidden>
             <label>
               Don’t fill this out: <input name="bot-field" />
