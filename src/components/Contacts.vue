@@ -7,7 +7,8 @@
       <div class="row">
         <form
           name="contact"
-          method="POST"
+          method="post"
+          @submit.prevent="handleSubmit"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           class="form">
@@ -42,7 +43,7 @@
             :placeholder="pageData.form_field3.is_required ?
               `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
             v-model.trim="formData.message"/>
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="contact" value="contact-hidden" />
           <button
             class="cta cta--navy"
             type="submit">
@@ -139,7 +140,6 @@ export default {
     handleSubmit () {
       this.tryFormSubmit = true;
       this.checkForm();
-      console.log('this.errors.length', this.errors.length);
       if (this.errors.length < 1) {
         const options = {
           method: 'POST',
