@@ -17,32 +17,38 @@
               Don’t fill this out: <input name="bot-field" />
             </label>
           </p>
-          <input
-            ref="input1"
-            :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
-            v-show="pageData.form_field1"
-            :type="pageData.form_field1.type"
-            :placeholder="pageData.form_field1.is_required ?
-              `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
-            v-model.trim="formData.name"/>
-          <input
-            ref="input2"
-            :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
-            v-show="pageData.form_field2"
-            class="with-margin"
-            :type="pageData.form_field2.type"
-            :placeholder="pageData.form_field2.is_required ?
-              `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
-            v-model.trim="formData.email"/>
-          <input
-            ref="input3"
-            :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
-            v-show="pageData.form_field3"
-            class="full-width"
-            :type="pageData.form_field3.type"
-            :placeholder="pageData.form_field3.is_required ?
-              `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
-            v-model.trim="formData.message"/>
+          <label>
+            <input
+              ref="input1"
+              :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
+              v-show="pageData.form_field1"
+              :type="pageData.form_field1.type"
+              :placeholder="pageData.form_field1.is_required ?
+                `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
+              v-model.trim="formData.name"/>
+          </label>
+          <label>
+            <input
+              ref="input2"
+              :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
+              v-show="pageData.form_field2"
+              class="with-margin"
+              :type="pageData.form_field2.type"
+              :placeholder="pageData.form_field2.is_required ?
+                `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
+              v-model.trim="formData.email"/>
+          </label>
+          <label>
+            <input
+              ref="input3"
+              :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
+              v-show="pageData.form_field3"
+              class="full-width"
+              :type="pageData.form_field3.type"
+              :placeholder="pageData.form_field3.is_required ?
+                `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
+              v-model.trim="formData.message"/>
+          </label>
           <input type="hidden" name="contact" value="contact-hidden" />
           <button
             class="cta cta--navy"
@@ -142,8 +148,8 @@ export default {
       this.checkForm();
       if (this.errors.length < 1) {
         const options = {
-          method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          method: 'POST',
           body: this.encode({
             "form-name": "contacts",
             "name": this.formData.name,
