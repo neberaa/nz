@@ -18,25 +18,30 @@
             </label>
           </p>
           <input
-            :class="{'invalid': pageData.form_field1.is_required && formData.name.length < 1}"
+            ref="input1"
+            :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
             v-show="pageData.form_field1"
-            :required="pageData.form_field1.is_required"
             :type="pageData.form_field1.type"
-            :placeholder="pageData.form_field1.is_required ? `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
+            :placeholder="pageData.form_field1.is_required ?
+              `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
             v-model.trim="formData.name"/>
           <input
-            :class="{'invalid': pageData.form_field2.is_required && formData.email.length < 1}"
+            ref="input2"
+            :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
             v-show="pageData.form_field2"
             class="with-margin"
             :type="pageData.form_field2.type"
-            :placeholder="pageData.form_field2.is_required ? `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
+            :placeholder="pageData.form_field2.is_required ?
+              `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
             v-model.trim="formData.email"/>
           <input
-            :class="{'invalid': pageData.form_field3.is_required && formData.message.length < 1}"
+            ref="input3"
+            :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
             v-show="pageData.form_field3"
             class="full-width"
             :type="pageData.form_field3.type"
-            :placeholder="pageData.form_field3.is_required ? `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
+            :placeholder="pageData.form_field3.is_required ?
+              `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
             v-model.trim="formData.message"/>
           <input type="hidden" name="form-name" value="contact" />
           <button
@@ -90,7 +95,6 @@
 <script>
 import pageData from '../../data/pageBlocks/contacts.json';
 import siteData from '../../data/main.json';
-import axios from 'axios';
 
 export default {
   name: 'Contacts',
@@ -106,6 +110,7 @@ export default {
         message: '',
       },
       errors: [],
+      tryFormSubmit: false,
     }
   },
   computed: {
@@ -116,24 +121,41 @@ export default {
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join("&");
     },
+    checkForm () {
+      const { name, email, message } = this.formData;
+      const { input1, input2, input3 } = this.$refs;
+      const formIsEmpty = name.length < 1 && email.length < 1 && message.length < 1;
+
+      this.errors = [];
+
+      if (formIsEmpty) {
+        this.errors.push('Please fill in form fields');
+      }
+      if (input1.classList.contains('invalid') ||
+          input2.classList.contains('invalid') ||
+          input3.classList.contains('invalid')) {
+        this.errors.push('Some fields are invalid')
+      }
+    },
     handleSubmit () {
+      this.tryFormSubmit = true;
+      this.checkForm();
+      console.log('this.errors.length', this.errors.length);
       if (this.errors.length < 1) {
-        const axiosConfig = {
-          header: {"Content-Type": "application/x-www-form-urlencoded"}
+        const options = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: this.encode({
+            "form-name": "contacts",
+            "name": this.formData.name,
+            "email": this.formData.email,
+            "message": this.formData.message,
+          })
         };
-        axios
-          .post(
-            "/",
-            this.encode({
-              "form-name": "contacts",
-              "name": this.formData.name,
-              "email": this.formData.email,
-              "message": this.formData.message,
-            }),
-            axiosConfig
-          )
+        fetch('/', options)
           .then(() => {
             this.formSubmitted = true;
+            this.tryFormSubmit = false;
           })
           .catch(error => {
             console.log('Error on Contacts form submit', error);
