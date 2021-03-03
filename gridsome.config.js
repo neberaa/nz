@@ -59,9 +59,9 @@ module.exports = {
     svgRule
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
-    new PrerenderSPAPlugin({
-      staticDir: path.join(__dirname, 'dist'),
-      routes: [ '/' ],
-    })
+    // new PrerenderSPAPlugin({
+    //   staticDir: path.join(__dirname, 'dist'),
+    //   routes: [ '/' ],
+    // })
   },
 };
