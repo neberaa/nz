@@ -24,7 +24,7 @@ module.exports = {
       options: {
         path: "data/pageBlocks/*.json",
         typeName: "PageBlocks",
-        resolveAbsolutePaths: true,
+        resolveAbsolutePaths: false,
         remark: {
           externalLinksTarget: "_blank",
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]
@@ -59,15 +59,9 @@ module.exports = {
     svgRule
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
+    new PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, 'dist'),
+      routes: [ '/' ],
+    })
   },
-  // configureWebpack: () => {
-  //   return {
-  //     plugins: [
-  //       new PrerenderSPAPlugin({
-  //         staticDir: path.join(__dirname, 'dist'),
-  //         routes: [ '/'],
-  //       })
-  //     ]
-  //   }
-  // }
 };

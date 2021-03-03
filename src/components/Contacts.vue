@@ -8,7 +8,7 @@
         <form
           name="contact"
           method="post"
-          @submit.prevent="handleSubmit"
+          @submit="handleSubmit"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           class="form">
@@ -49,7 +49,7 @@
                 `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
               v-model.trim="formData.message"/>
           </label>
-          <input type="hidden" name="contact" value="contact-hidden" />
+          <input type="hidden" name="form-name" value="contact">
           <button
             class="cta cta--navy"
             type="submit">
@@ -143,7 +143,8 @@ export default {
         this.errors.push('Some fields are invalid')
       }
     },
-    handleSubmit () {
+    handleSubmit (e) {
+      e.preventDefault();
       this.tryFormSubmit = true;
       this.checkForm();
       if (this.errors.length < 1) {
