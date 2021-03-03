@@ -12,7 +12,7 @@
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           class="form">
-          <input type="hidden" name="contacts" value="contacts-hidden" />
+          <input type="hidden" name="form-name" value="contacts">
           <p hidden>
             <label>
               Don’t fill this out: <input name="bot-field" />
