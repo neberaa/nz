@@ -309,7 +309,6 @@ ul {
     padding: 0;
   }
 }
-
 .modal-container {
   position: fixed;
   top: 0;
@@ -336,10 +335,68 @@ ul {
     max-width: calc(100% - 2.4rem);
     max-height: 80vh;
     overflow: auto;
+    position: relative;
     @include screenBreakpoint2(desktop) {
       max-width: 1200px;
       padding: 4rem;
       border: 5px solid $yellow;
+    }
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      @include screenBreakpoint2(desktop) {
+        margin-bottom: 4rem;
+      }
+      & > * {
+        font-family: "Playfair Display";
+      }
+      .title {
+        color: $navy;
+        margin-right: 1rem;
+        span {
+          color: $yellow;
+          text-transform: uppercase;
+          font-size: 2rem;
+        }
+      }
+      .price {
+        color: $yellow;
+      }
+    }
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      font-size: 0;
+      @include screenBreakpoint2(desktop) {
+        width: 60px;
+        height: 60px;
+        top: 0;
+        right: 0;
+      }
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 1.4rem;
+        background-color: $navy;
+        transform: rotate(45deg) translate(-50%, -50%);
+        transform-origin: top left;
+        content: '';
+        @include screenBreakpoint2(desktop) {
+          height: 2rem;
+        }
+      }
+      &::after {
+        transform: rotate(-45deg) translate(-50%, -50%);
+      }
     }
   }
 }

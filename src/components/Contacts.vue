@@ -115,6 +115,16 @@
         </div>
       </div>
     </div>
+    <transition name="fade400">
+      <div class="modal-container" v-show="modalIsShown && formSubmitted">
+        <div class="overlay" @click="closeModal"/>
+        <div class="modal">
+          <h2 v-text="pageData.thank_you_title" />
+          <p v-text="pageData.thank_you_description"/>
+          <button class="close" @click="closeModal" />
+        </div>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -137,6 +147,7 @@ export default {
       },
       errors: [],
       tryFormSubmit: false,
+      modalIsShown: false,
     }
   },
   computed: {
@@ -181,6 +192,7 @@ export default {
           .then(() => {
             this.formSubmitted = true;
             this.tryFormSubmit = false;
+            this.modalIsShown = true;
           })
           .catch(error => {
             console.log('Error on Contacts form submit', error);
@@ -189,6 +201,9 @@ export default {
     },
     socialLink(link) {
       return link.indexOf('http') > -1 ? link : `https://${link}`;
+    },
+    closeModal() {
+      this.modalIsShown = false;
     },
   },
   watch: {
