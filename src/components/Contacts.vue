@@ -6,50 +6,70 @@
       <p class="description" v-text="pageData.description"/>
       <div class="row">
         <form
-          name="contact"
+          name="contacts"
           method="post"
-          @submit="handleSubmit"
+          @submit.prevent="handleSubmit"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           class="form">
+          <input type="hidden" name="contacts" value="contacts-hidden" />
           <p hidden>
             <label>
               Don’t fill this out: <input name="bot-field" />
             </label>
           </p>
-          <label>
-            <input
-              ref="input1"
-              :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
-              v-show="pageData.form_field1"
-              :type="pageData.form_field1.type"
-              :placeholder="pageData.form_field1.is_required ?
-                `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder"
-              v-model.trim="formData.name"/>
-          </label>
-          <label>
-            <input
-              ref="input2"
-              :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
-              v-show="pageData.form_field2"
-              class="with-margin"
-              :type="pageData.form_field2.type"
-              :placeholder="pageData.form_field2.is_required ?
-                `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder"
-              v-model.trim="formData.email"/>
-          </label>
-          <label>
-            <input
-              ref="input3"
-              :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
-              v-show="pageData.form_field3"
-              class="full-width"
-              :type="pageData.form_field3.type"
-              :placeholder="pageData.form_field3.is_required ?
-                `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder"
-              v-model.trim="formData.message"/>
-          </label>
-          <input type="hidden" name="form-name" value="contact">
+          <div class="form-row">
+            <div class="field">
+              <label
+                  for="input1"
+                  :class="[
+                {top: formData.name.length > 0},
+                {'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}]">
+                {{pageData.form_field1.is_required ?
+                  `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder}}</label>
+              <input
+                  id="input1"
+                  ref="input1"
+                  :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
+                  v-show="pageData.form_field1"
+                  :type="pageData.form_field1.type"
+                  v-model.trim="formData.name"/>
+            </div>
+            <div class="field with-margin">
+              <label
+                  for="input2"
+                  :class="[
+                {top: formData.email.length > 0},
+                {invalid: tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}]">
+                {{pageData.form_field2.is_required ?
+                  `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder}}</label>
+              <input
+                  id="input2"
+                  ref="input2"
+                  :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
+                  v-show="pageData.form_field2"
+                  :type="pageData.form_field2.type"
+                  v-model.trim="formData.email"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field full-width">
+              <label
+                  for="input3"
+                  :class="[
+                {top: formData.message.length > 0},
+                {'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}]">
+                {{pageData.form_field3.is_required ?
+                  `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder}}</label>
+              <input
+                  id="input3"
+                  ref="input3"
+                  :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
+                  v-show="pageData.form_field3"
+                  :type="pageData.form_field3.type"
+                  v-model.trim="formData.message"/>
+            </div>
+          </div>
           <button
             class="cta cta--navy"
             type="submit">
@@ -143,8 +163,7 @@ export default {
         this.errors.push('Some fields are invalid')
       }
     },
-    handleSubmit (e) {
-      e.preventDefault();
+    handleSubmit () {
       this.tryFormSubmit = true;
       this.checkForm();
       if (this.errors.length < 1) {
@@ -241,6 +260,7 @@ export default {
         }
       }
       .form {
+        flex: 1 1 100%;
         @include screenBreakpoint2(desktop) {
           max-width: 70%;
           text-align: right;
@@ -248,24 +268,43 @@ export default {
         @include screenBreakpoint2(phone) {
           text-align: center;
         }
-        input {
-          margin-bottom: 2rem;
-          width: calc(50% - 20px);
-          @include screenBreakpoint2(phone) {
-            width: 100%;
-            margin-bottom: 1rem;
-          }
-          &.full-width {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 50px;
-          }
-          &.with-margin {
-            margin-left: 40px;
+        &-row {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          .field {
+            position: relative;
+            margin-bottom: 2rem;
             width: calc(50% - 20px);
             @include screenBreakpoint2(phone) {
               width: 100%;
+              margin-bottom: 1rem;
+            }
+            &.full-width {
+              width: 100%;
               margin-left: 0;
+              margin-top: 50px;
+            }
+            &.with-margin {
+              margin-left: 40px;
+              width: calc(50% - 20px);
+              @include screenBreakpoint2(phone) {
+                width: 100%;
+                margin-left: 0;
+              }
+            }
+            input {
+              width: 100%;
+            }
+            label {
+              position: absolute;
+              top: 10px;
+              transition: all 300ms ease;
+              padding: 0 5px;
+              &.top {
+                top: -7px;
+                font-size: 0.8rem;
+              }
             }
           }
         }

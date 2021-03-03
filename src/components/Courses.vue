@@ -53,6 +53,7 @@
           <header class="modal-header">
             <h2 class="title">You chose the <span>{{selectedCourse.title}}</span> course</h2>
             <h2 class="price" v-text="`${selectedCourse.price}`"/>
+
           </header>
           <p v-text="courseForm.description" />
           <form
@@ -95,6 +96,7 @@
               {{courseForm.form_button_text}}
             </button>
           </form>
+          <button class="close" @click="closeModal" />
         </div>
       </div>
     </transition>
@@ -360,6 +362,7 @@ export default {
       }
     }
     .modal {
+      position: relative;
       &-header {
         display: flex;
         justify-content: space-between;
@@ -382,6 +385,39 @@ export default {
         }
         .price {
           color: $yellow;
+        }
+      }
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0;
+        @include screenBreakpoint2(desktop) {
+          width: 60px;
+          height: 60px;
+          top: 0;
+          right: 0;
+        }
+        &::before,
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 5px;
+          height: 1.4rem;
+          background-color: $navy;
+          transform: rotate(45deg) translate(-50%, -50%);
+          transform-origin: top left;
+          content: '';
+          @include screenBreakpoint2(desktop) {
+            height: 2rem;
+          }
+        }
+        &::after {
+          transform: rotate(-45deg) translate(-50%, -50%);
         }
       }
     }

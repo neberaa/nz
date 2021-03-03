@@ -247,6 +247,9 @@ input {
     outline: none;
   }
 }
+label.invalid {
+  color: $pink;
+}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
