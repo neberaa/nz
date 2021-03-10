@@ -5,7 +5,6 @@ import deviceChecker from './deviceChecker';
 import siteData from '../data/main.json';
 require('typeface-poppins');
 require('typeface-playfair-display');
-import smoothscroll from 'smoothscroll-polyfill';
 
 export default function(Vue, { head, appOptions  }) {
   Vue.component("Layout", DefaultLayout);
@@ -13,7 +12,6 @@ export default function(Vue, { head, appOptions  }) {
   head.htmlAttrs = { lang: 'en' };
   Vue.mixin(deviceChecker);
   
-  smoothscroll.polyfill();
   appOptions.store = store;
   head.meta.push({
     name: 'keywords',

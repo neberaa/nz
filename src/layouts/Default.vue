@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import {  mapState, mapMutations } from 'vuex';
+import smoothscroll from 'smoothscroll-polyfill';
 
 export default {
   components: {
@@ -35,6 +36,7 @@ export default {
     ...mapMutations(['setIsLoaded'])
   },
   mounted() {
+    smoothscroll.polyfill();
     setTimeout(() => {
       this.setIsLoaded(true);
     }, 4000);
