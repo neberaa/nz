@@ -451,12 +451,18 @@ ul {
     }
   }
 }
-
-.simplebar-track.simplebar-horizontal {
-  display: none;
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
 }
-.simplebar-content {
-  overflow-x: hidden;
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: $navy;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba($navy,0.4);
 }
 
 // Vue js animation
