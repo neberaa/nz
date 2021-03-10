@@ -37,14 +37,13 @@ export default {
   mounted() {
     setTimeout(() => {
       this.setIsLoaded(true);
-    }, 1500);
+    }, 4000);
   }
 }
 </script>
 
 
 <style lang="scss">
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -463,6 +462,39 @@ ul {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba($navy,0.4);
+}
+
+// Loading screen bubbles
+.loading {
+  span {
+    position: absolute;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: animate 4s linear infinite;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scale(0.25) translate(-70%, -70%);
+      background: radial-gradient(#fff, transparent);
+    }
+    @keyframes animate {
+      0% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+      99% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-2000%);
+        opacity: 0;
+      }
+    }
+  }
 }
 
 // Vue js animation

@@ -1,41 +1,44 @@
 <template>
   <transition name="fade" appear>
-    <div class="loading">
+    <div class="loading" id="loading-container">
       <h1>Loading....</h1>
     </div>
   </transition>
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside';
 
 export default {
-  directives: {
-    ClickOutside
-  },
-  inject: ['resp'],
-  data() {
-    return {
-      logo: require("../../static/logo.png"),
-      settings: require("../../data/main.json"),
-      href: null,
+  methods: {
+    createRandomBubbles() {
+      const container = document.getElementById('loading-container');
+      for (let i = 1; i <= 50; i++) {
+        setTimeout(() => {
+          const bubble = document.createElement('span');
+          const size = 20 + Math.random() * 40;
+          console.log('siz', size);
+          bubble.style.width = size + 'px';
+          bubble.style.height = size + 'px';
+          bubble.style.bottom = - Math.random() * 20 + Math.random() * 200 + 'px';
+          bubble.style.left = innerWidth / 2 - 30 + Math.random() * 60 + 'px';
+
+          container.appendChild(bubble);
+          setTimeout(() => {
+            bubble.remove();
+          }, 4200);
+        }, Math.random() * 1000);
+      }
     }
   },
-  computed: {
-  },
-  methods: {
-  },
-  watch: {
-  },
-  beforeMount() {
-  },
   mounted() {
+    this.createRandomBubbles();
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .loading {
+    overflow: hidden;
     position: absolute;
     z-index: 100;
     width: 100%;
@@ -45,5 +48,4 @@ export default {
     align-items: center;
     background-color: $yellow;
   }
-
 </style>
