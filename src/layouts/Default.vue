@@ -249,6 +249,13 @@ input {
     outline: none;
   }
 }
+input {
+  border-radius: 0;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
 label.invalid {
   color: $pink;
 }
