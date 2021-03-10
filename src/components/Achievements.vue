@@ -80,6 +80,9 @@ export default {
       @include screenBreakpoint2(tablet) {
         min-height: 80vh;
       }
+      @supports (-webkit-touch-callout: inherit) {
+        background-attachment: scroll;
+      }
       .items {
         margin: auto;
         display: flex;

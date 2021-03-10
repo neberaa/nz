@@ -23,11 +23,11 @@
         <p class="description" v-text="pageData.subtitle"  />
         <h1 class="jumbo subtitle" v-text="pageData.jumbo_title"/>
       </div>
-      <button class="cta" @click="showSignUpForm">{{pageData.cta_button_text}}</button>
+      <button class="cta" @click="scrollToCourses">{{pageData.cta_button_text}}</button>
     </div>
     <ResponsiveImage class="hero" :url="pageData.hero_image"/>
     <div class="cta-container">
-      <button class="cta" @click="showSignUpForm">{{pageData.cta_button_text}}</button>
+      <button class="cta" @click="scrollToCourses">{{pageData.cta_button_text}}</button>
       <div class="arrow" @click="scrollDown"/>
     </div>
   </section>
@@ -45,7 +45,6 @@ export default {
     return {
       pageData,
       siteData,
-      formIsShown: false,
       sectionHeight: '100vh',
     }
   },
@@ -53,8 +52,9 @@ export default {
     ...mapState(['isLoaded']),
   },
   methods: {
-    showSignUpForm() {
-      this.formIsShown = !this.formIsShown;
+    scrollToCourses() {
+      const courses = document.getElementById('courses').getBoundingClientRect().top;
+      window.scrollTo({top: courses, behavior: 'smooth'});
     },
     socialLink(link) {
       return link.indexOf('http') > -1 ? link : `https://${link}`;

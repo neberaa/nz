@@ -102,7 +102,9 @@ span {
     font-size: 0.6rem;
   }
 }
-
+.color--yellow {
+  color: $yellow;
+}
 img {
   max-width: 100%;
 }
@@ -442,6 +444,14 @@ ul {
     }
   }
 }
+
+.simplebar-track.simplebar-horizontal {
+  display: none;
+}
+.simplebar-content {
+  overflow-x: hidden;
+}
+
 // Vue js animation
 // Fade
 .fade-enter-active {

@@ -63,33 +63,70 @@
             data-netlify-honeypot="bot-field"
             class="form"
             @submit.prevent="handleSubmit">
+            <input type="hidden" name="form-name" value="course-submit">
             <p hidden>
               <label>
                 Don’t fill this out: <input name="bot-field" />
               </label>
             </p>
-            <input
-              :class="{'invalid': courseForm.form_field1.is_required && formData.name.length < 1}"
-              v-show="courseForm.form_field1"
-              :required="courseForm.form_field1.is_required"
-              :type="courseForm.form_field1.type"
-              :placeholder="courseForm.form_field1.is_required ? `${courseForm.form_field1.placeholder} *` : courseForm.form_field1.placeholder"
-              v-model.trim="formData.name"/>
-            <input
-              :class="{'invalid': courseForm.form_field2.is_required && formData.email.length < 1}"
-              v-show="courseForm.form_field2"
-              :required="courseForm.form_field2.is_required"
-              :type="courseForm.form_field2.type"
-              :placeholder="courseForm.form_field2.is_required ? `${courseForm.form_field2.placeholder} *` : courseForm.form_field2.placeholder"
-              v-model.trim="formData.email"/>
-            <input
-              :class="{'invalid': courseForm.form_field3.is_required && formData.message.length < 1}"
-              v-show="courseForm.form_field3"
-              :required="courseForm.form_field3.is_required"
-              :type="courseForm.form_field3.type"
-              :placeholder="courseForm.form_field3.is_required ? `${courseForm.form_field3.placeholder} *` : courseForm.form_field3.placeholder"
-              v-model.trim="formData.message"/>
-            <input type="hidden" name="form-name" value="course-submit" />
+            <div class="form-row">
+              <div class="field">
+                <label
+                  for="courseInput1"
+                  :class="[
+                    {top: formData.name.length > 0},
+                    {'invalid': tryFormSubmit && courseForm.form_field1.is_required && formData.name.length < 1}]">
+                      {{courseForm.form_field1.is_required ? `${courseForm.form_field1.placeholder} *` :
+                      courseForm.form_field1.placeholder}}
+                </label>
+                <input
+                  name="name"
+                  id="courseInput1"
+                  ref="courseInput1"
+                  :class="{'invalid': tryFormSubmit && courseForm.form_field1.is_required && formData.name.length < 1}"
+                  v-show="courseForm.form_field1"
+                  :type="courseForm.form_field1.type"
+                  v-model.trim="formData.name"/>
+              </div>
+              <div class="field with-margin">
+                <label
+                  for="courseInput2"
+                  :class="[
+                    {top: formData.email.length > 0},
+                    {'invalid': tryFormSubmit && courseForm.form_field2.is_required && formData.email.length < 1}]">
+                    {{courseForm.form_field2.is_required ? `${courseForm.form_field2.placeholder} *` :
+                      courseForm.form_field2.placeholder}}
+                </label>
+                <input
+                  name="email"
+                  id="courseInput2"
+                  ref="courseInput2"
+                  :class="{'invalid': tryFormSubmit && courseForm.form_field2.is_required && formData.email.length < 1}"
+                  v-show="courseForm.form_field2"
+                  :type="courseForm.form_field2.type"
+                  v-model.trim="formData.email"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field full-width">
+                <label
+                  for="courseInput3"
+                  :class="[
+                    {top: formData.message.length > 0},
+                    {'invalid': tryFormSubmit && courseForm.form_field3.is_required && formData.message.length < 1}]">
+                    {{courseForm.form_field3.is_required ? `${courseForm.form_field3.placeholder} *` :
+                      courseForm.form_field3.placeholder}}
+                </label>
+                <input
+                  name="message"
+                  id="courseInput3"
+                  ref="courseInput3"
+                  :class="{'invalid': tryFormSubmit && courseForm.form_field3.is_required && formData.message.length < 1}"
+                  v-show="courseForm.form_field3"
+                  :type="courseForm.form_field3.type"
+                  v-model.trim="formData.message"/>
+              </div>
+            </div>
             <button
                 class="cta cta--navy"
                 type="submit">
@@ -97,6 +134,20 @@
             </button>
           </form>
           <button class="close" @click="closeModal" />
+        </div>
+      </div>
+    </transition>
+    <transition name="fade400">
+      <div class="modal-container" v-show="thankYouModalIsShown && formSubmitted">
+        <div class="overlay" @click="closeAllModals"/>
+        <div class="modal">
+          <h2>{{courseForm.thank_you_title}}
+            <span class="header-highlighted color--yellow">
+              {{courseForm.thank_you_title_highlighted}}
+            </span>
+          </h2>
+          <p class="thankyou-text" v-text="courseForm.thank_you_description"/>
+          <button class="close" @click="closeAllModals" />
         </div>
       </div>
     </transition>
@@ -138,6 +189,10 @@ export default {
         message: '',
       },
       selectedCourse: {},
+      tryFormSubmit: false,
+      formSubmitted: false,
+      thankYouModalIsShown: false,
+      errors: [],
     }
   },
   computed: {
@@ -167,9 +222,64 @@ export default {
     closeModal() {
       this.modalIsShown = false;
     },
+    closeAllModals() {
+      this.modalIsShown = false;
+      this.thankYouModalIsShown = false;
+    },
     openModal(selected) {
       this.modalIsShown = true;
       this.selectedCourse = selected;
+    },
+    encode (data) {
+      return Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join("&");
+    },
+    checkForm () {
+      const { name, email, message } = this.formData;
+      const { courseInput1, courseInput2, courseInput3 } = this.$refs;
+      const formIsEmpty = name.length < 1 && email.length < 1 && message.length < 1;
+
+      this.errors = [];
+
+      if (formIsEmpty) {
+        this.errors.push('Please fill in form fields');
+      }
+      if (courseInput1.classList.contains('invalid') ||
+          courseInput2.classList.contains('invalid') ||
+          courseInput3.classList.contains('invalid')) {
+        this.errors.push('Some fields are invalid')
+      }
+    },
+    handleSubmit () {
+      this.tryFormSubmit = true;
+      this.checkForm();
+      if (this.errors.length < 1) {
+        const options = {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          method: 'POST',
+          body: this.encode({
+            "form-name": "course-submit",
+            "name": this.formData.name,
+            "email": this.formData.email,
+            "message": this.formData.message,
+          })
+        };
+        fetch('/', options)
+          .then(() => {
+            this.formSubmitted = true;
+            this.tryFormSubmit = false;
+            this.thankYouModalIsShown = true;
+            this.formData = {
+              name: '',
+              email: '',
+              message: '',
+            };
+          })
+          .catch(error => {
+            console.log('Error on Course form submit', error);
+          });
+      }
     },
   },
   watch: {
@@ -360,6 +470,67 @@ export default {
           padding-top: 2rem;
         }
       }
+    }
+    .form {
+      flex: 1 1 100%;
+      margin-top: 2rem;
+      &-row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .field {
+          position: relative;
+          margin-bottom: 2rem;
+          width: calc(50% - 20px);
+          @include screenBreakpoint2(phone) {
+            width: 100%;
+            margin-bottom: 1rem;
+          }
+          &.full-width {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 50px;
+          }
+          &.with-margin {
+            margin-left: 40px;
+            width: calc(50% - 20px);
+            @include screenBreakpoint2(phone) {
+              width: 100%;
+              margin-left: 0;
+            }
+          }
+          input {
+            width: 100%;
+          }
+          label {
+            position: absolute;
+            top: 10px;
+            transition: all 300ms ease;
+            padding: 0 5px;
+            &.top {
+              top: -7px;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+      .cta {
+        right: 0;
+        font-weight: 400;
+        @include screenBreakpoint2(phone) {
+          margin: 1rem auto;
+        }
+        @include screenBreakpoint2(tablet) {
+          margin: 1rem auto;
+        }
+      }
+    }
+    .header-highlighted {
+      font-size: 2rem;
+    }
+    .thankyou-text {
+      font-size: 1.4rem;
+      margin-top: 1rem;
     }
   }
 </style>

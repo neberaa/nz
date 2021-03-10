@@ -28,12 +28,13 @@
                 {{pageData.form_field1.is_required ?
                   `${pageData.form_field1.placeholder} *` : pageData.form_field1.placeholder}}</label>
               <input
-                  id="input1"
-                  ref="input1"
-                  :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
-                  v-show="pageData.form_field1"
-                  :type="pageData.form_field1.type"
-                  v-model.trim="formData.name"/>
+                name="name"
+                id="input1"
+                ref="input1"
+                :class="{'invalid': tryFormSubmit && pageData.form_field1.is_required && formData.name.length < 1}"
+                v-show="pageData.form_field1"
+                :type="pageData.form_field1.type"
+                v-model.trim="formData.name"/>
             </div>
             <div class="field with-margin">
               <label
@@ -44,6 +45,7 @@
                 {{pageData.form_field2.is_required ?
                   `${pageData.form_field2.placeholder} *` : pageData.form_field2.placeholder}}</label>
               <input
+                  name="email"
                   id="input2"
                   ref="input2"
                   :class="{'invalid': tryFormSubmit && pageData.form_field2.is_required && formData.email.length < 1}"
@@ -62,6 +64,7 @@
                 {{pageData.form_field3.is_required ?
                   `${pageData.form_field3.placeholder} *` : pageData.form_field3.placeholder}}</label>
               <input
+                  name="message"
                   id="input3"
                   ref="input3"
                   :class="{'invalid': tryFormSubmit && pageData.form_field3.is_required && formData.message.length < 1}"
@@ -193,6 +196,11 @@ export default {
             this.formSubmitted = true;
             this.tryFormSubmit = false;
             this.modalIsShown = true;
+            this.formData = {
+              name: '',
+              email: '',
+              message: '',
+            };
           })
           .catch(error => {
             console.log('Error on Contacts form submit', error);
