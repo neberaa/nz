@@ -221,6 +221,7 @@ export default {
     },
     closeModal() {
       this.modalIsShown = false;
+      this.tryFormSubmit = false;
     },
     closeAllModals() {
       this.modalIsShown = false;
