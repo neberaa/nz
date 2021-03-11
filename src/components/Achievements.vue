@@ -27,8 +27,8 @@ export default {
       pageData,
       siteData,
       formIsShown: false,
-      imageLink: `${siteData.cloudinary_url+pageData.background_image}`,
-      mobileImageLink: `${siteData.cloudinary_url+pageData.mobile_background_image}`,
+      imageLink: `${siteData.cloudinary_url+'/fl_progressive,q_auto:best/'+pageData.background_image}`,
+      mobileImageLink: `${siteData.cloudinary_url+'/fl_progressive,q_auto:best/'+pageData.mobile_background_image}`,
     }
   },
   computed: {
