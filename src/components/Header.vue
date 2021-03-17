@@ -33,7 +33,8 @@
 
 <script>
 import ClickOutside from 'vue-click-outside';
-import { mapMutations } from "vuex";
+import { mapMutations } from 'vuex';
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
   directives: {
@@ -90,10 +91,37 @@ export default {
     socialLink(link) {
       return link.indexOf('http') > -1 ? link : `https://${link}`;
     },
+    animateMenuItems() {
+      const textWrapper = document.querySelectorAll('.link');
+      textWrapper.forEach(wrapper =>
+        wrapper.innerHTML = wrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>"));
+
+      anime.timeline({loop: false})
+        .add({
+          targets: '.link .letter',
+          translateX: [40,0],
+          translateZ: 0,
+          opacity: [0,1],
+          easing: "easeInOutQuad",
+          duration: 1000,
+          delay: (el, i) => 200 + 60 * i
+        })
+        .add({
+          targets: '.social__item',
+          translateX: [40,0],
+          translateZ: 0,
+          opacity: [0,1],
+          easing: "easeOutExpo",
+          duration: 500,
+        });
+    },
   },
   watch: {
     menuIsOpen(state) {
       this.setMenuIsOpen(state);
+      if (state) {
+        this.animateMenuItems();
+      }
     }
   },
   beforeMount() {
@@ -103,7 +131,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .header {
     position: relative;
     top: 0;
@@ -123,7 +151,7 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba($navy, 0.8);
+      background-color: rgba($navy, 0.9);
       z-index: 10;
       display: flex;
       flex-direction: column;
@@ -144,6 +172,9 @@ export default {
             cursor: pointer;
             &--active {
               color: $yellow;
+            }
+            span {
+              font-size: 2rem;
             }
           }
         }

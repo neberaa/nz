@@ -5,8 +5,8 @@
       class="background-container"
       :style="`background-image:url(${imageLink})`">
       <div class="items">
-        <div class="item" v-for="item in pageData.achivements">
-          <h4 class="item__value" v-text="item.value" />
+        <div class="item" v-for="(item, i) in pageData.achivements">
+          <h4 class="item__value" :id="`animate-${i}`" v-text="item.value" />
           <h4 class="item__title" v-text="item.title" />
         </div>
       </div>
@@ -17,7 +17,7 @@
 <script>
 import pageData from '../../data/pageBlocks/achievements.json';
 import siteData from '../../data/main.json';
-import {mapState} from "vuex";
+import { mapState } from 'vuex';
 
 export default {
   name: 'Achievements',
@@ -29,6 +29,7 @@ export default {
       formIsShown: false,
       imageLink: `${siteData.cloudinary_url+'/fl_progressive,q_auto:best/'+pageData.background_image}`,
       mobileImageLink: `${siteData.cloudinary_url+'/fl_progressive,q_auto:best/'+pageData.mobile_background_image}`,
+      isAnimated: false,
     }
   },
   computed: {
@@ -37,6 +38,37 @@ export default {
     ]),
   },
   methods: {
+    setObserver() {
+      const container = document.querySelector('.courses');
+      let observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach(entry => {
+              if (this.isLoaded && !this.isAnimated) {
+                this.pageData.achivements.forEach((achievement, ind) => {
+                  this.animateValue(`animate-${ind}`, 0, achievement.value, 1000);
+                })
+                this.isAnimated = true;
+              }
+            });
+          }, {rootMargin: "0px 0px 200px 0px"});
+      observer.observe(container);
+    },
+    animateValue(id, start, end, duration) {
+      if (start === end) return;
+      const range = end - start;
+      let current = start;
+      const increment = end > start? 1 : -1;
+      const stepTime = Math.abs(Math.floor(duration / range));
+      const obj = document.getElementById(id);
+      const timer = setInterval(() => {
+        current += increment;
+        obj.innerHTML = current;
+        if (current === end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+
   },
   watch: {
     isLoaded(loaded) {
@@ -48,6 +80,7 @@ export default {
   beforeMount() {
   },
   mounted() {
+    this.setObserver();
   }
 }
 </script>

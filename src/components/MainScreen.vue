@@ -53,8 +53,10 @@ export default {
   },
   methods: {
     scrollToCourses() {
-      const courses = document.getElementById('courses').getBoundingClientRect().top;
-      window.scrollTo({top: courses, behavior: 'smooth'});
+      const element = document.getElementById('courses');
+      const rect = element.getBoundingClientRect();
+      const topPosition = rect.top + window.scrollY;
+      window.scrollTo({top: topPosition, behavior: 'smooth'});
     },
     socialLink(link) {
       return link.indexOf('http') > -1 ? link : `https://${link}`;
@@ -79,7 +81,6 @@ export default {
   beforeMount() {
   },
   mounted() {
-
   }
 }
 </script>
