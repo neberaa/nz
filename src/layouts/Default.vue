@@ -410,6 +410,9 @@ ul {
     }
   }
 }
+.loading__title .letter {
+  opacity: 0;
+}
 
 .label {
   display: block;

@@ -34,7 +34,7 @@ export default {
       const textWrapper = document.querySelector('.loading__title');
       textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<a class='letter'>$&</a>");
 
-      anime.timeline({loop: true})
+      anime.timeline({loop: false})
         .add({
           targets: '.loading__title .letter',
           translateX: [40,0],
@@ -73,7 +73,6 @@ export default {
     align-items: center;
     background-color: $yellow;
     &__title .letter {
-      opacity: 0;
       font-size: 2.2rem;
       display: inline-block;
     }
