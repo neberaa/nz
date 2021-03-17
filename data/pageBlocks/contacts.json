@@ -4,12 +4,12 @@
   "subtitle": "Have you any questions?",
   "description": "\nIf you have questions, you can write to me. In addition, if you have any proposals for cooperation, collaborations or organizing events, I will be glad to hear from you! Be sure to contact me if you’re looking for professional freediver.",
   "form_field1": {
-    "placeholder": "Your name",
+    "placeholder": "Name",
     "type": "Text",
     "is_required": false
   },
   "form_field2": {
-    "placeholder": "Your E-mail",
+    "placeholder": "E-mail",
     "type": "Email",
     "is_required": true
   },
