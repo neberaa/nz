@@ -63,7 +63,7 @@ export default {
       const timer = setInterval(() => {
         current += increment;
         obj.innerHTML = current;
-        if (current === end) {
+        if (current == end) {
           clearInterval(timer);
         }
       }, stepTime);

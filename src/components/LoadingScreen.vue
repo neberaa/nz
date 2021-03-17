@@ -73,6 +73,7 @@ export default {
     align-items: center;
     background-color: $yellow;
     &__title .letter {
+      opacity: 0;
       font-size: 2.2rem;
       display: inline-block;
     }
