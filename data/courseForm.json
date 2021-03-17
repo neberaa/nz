@@ -2,12 +2,12 @@
   "description": "    Besides the limits of breath-hold, immersion in water and exposure to high ambient pressure also have physiological effects that limit the depths and duration possible in freediving. Examples of freediving activities are traditional fishing techniques, competitive and non-competitive freediving, competitive and non-competitive spearfishing and freediving photography, synchronised swimming, underwater football, underwater rugby, underwater hockey, underwater target shooting and snorkeling.\n also a range of \"competitive apnea\" disciplines; in which competitors attempt to attain great depths, times, or distances on a single breath.used to refer to scuba diving, due to the freedom of movement compared with surface supplied diving.",
   "form_field1": {
     "type": "Text",
-    "placeholder": "Your name",
+    "placeholder": "Name",
     "is_required": false
   },
   "form_field2": {
     "type": "Email",
-    "placeholder": "Your e-mail",
+    "placeholder": "E-mail",
     "is_required": true
   },
   "form_field3": {
